@@ -123,5 +123,7 @@ CMakeFiles/rpc_server.dir/rpc_server.c.o: \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
  /usr/include/x86_64-linux-gnu/bits/types/error_t.h \
  /home/z2w/share/z2w_rpc/NtyCo/core/nty_queue.h \
- /home/z2w/share/z2w_rpc/NtyCo/core/nty_tree.h /usr/include/arpa/inet.h \
- /usr/include/netinet/in.h /usr/include/x86_64-linux-gnu/bits/in.h
+ /home/z2w/share/z2w_rpc/NtyCo/core/nty_tree.h \
+ /home/z2w/share/z2w_rpc/crc32.h /home/z2w/share/z2w_rpc/rpc.h \
+ /usr/include/arpa/inet.h /usr/include/netinet/in.h \
+ /usr/include/x86_64-linux-gnu/bits/in.h

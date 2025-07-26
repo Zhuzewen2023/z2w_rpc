@@ -83,12 +83,12 @@ clean: CMakeFiles/rpc_client.dir/clean
 CMakeFiles/rpc_server.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_server.dir/build.make CMakeFiles/rpc_server.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_server.dir/build.make CMakeFiles/rpc_server.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/z2w/share/z2w_rpc/build/CMakeFiles --progress-num=4,5,6 "Built target rpc_server"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/z2w/share/z2w_rpc/build/CMakeFiles --progress-num=5,6,7,8 "Built target rpc_server"
 .PHONY : CMakeFiles/rpc_server.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/rpc_server.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/z2w/share/z2w_rpc/build/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/z2w/share/z2w_rpc/build/CMakeFiles 4
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/rpc_server.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/z2w/share/z2w_rpc/build/CMakeFiles 0
 .PHONY : CMakeFiles/rpc_server.dir/rule
@@ -109,12 +109,12 @@ CMakeFiles/rpc_server.dir/clean:
 CMakeFiles/rpc_client.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_client.dir/build.make CMakeFiles/rpc_client.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_client.dir/build.make CMakeFiles/rpc_client.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/z2w/share/z2w_rpc/build/CMakeFiles --progress-num=1,2,3 "Built target rpc_client"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/z2w/share/z2w_rpc/build/CMakeFiles --progress-num=1,2,3,4 "Built target rpc_client"
 .PHONY : CMakeFiles/rpc_client.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/rpc_client.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/z2w/share/z2w_rpc/build/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/z2w/share/z2w_rpc/build/CMakeFiles 4
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/rpc_client.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/z2w/share/z2w_rpc/build/CMakeFiles 0
 .PHONY : CMakeFiles/rpc_client.dir/rule

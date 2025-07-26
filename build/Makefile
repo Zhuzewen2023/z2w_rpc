@@ -169,6 +169,33 @@ crc32.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_client.dir/build.make CMakeFiles/rpc_client.dir/crc32.c.s
 .PHONY : crc32.c.s
 
+rpc.o: rpc.c.o
+.PHONY : rpc.o
+
+# target to build an object file
+rpc.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_server.dir/build.make CMakeFiles/rpc_server.dir/rpc.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_client.dir/build.make CMakeFiles/rpc_client.dir/rpc.c.o
+.PHONY : rpc.c.o
+
+rpc.i: rpc.c.i
+.PHONY : rpc.i
+
+# target to preprocess a source file
+rpc.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_server.dir/build.make CMakeFiles/rpc_server.dir/rpc.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_client.dir/build.make CMakeFiles/rpc_client.dir/rpc.c.i
+.PHONY : rpc.c.i
+
+rpc.s: rpc.c.s
+.PHONY : rpc.s
+
+# target to generate assembly for a file
+rpc.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_server.dir/build.make CMakeFiles/rpc_server.dir/rpc.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_client.dir/build.make CMakeFiles/rpc_client.dir/rpc.c.s
+.PHONY : rpc.c.s
+
 rpc_client.o: rpc_client.c.o
 .PHONY : rpc_client.o
 
@@ -230,6 +257,9 @@ help:
 	@echo "... crc32.o"
 	@echo "... crc32.i"
 	@echo "... crc32.s"
+	@echo "... rpc.o"
+	@echo "... rpc.i"
+	@echo "... rpc.s"
 	@echo "... rpc_client.o"
 	@echo "... rpc_client.i"
 	@echo "... rpc_client.s"

@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/rpc_server.dir/crc32.c.o"
   "CMakeFiles/rpc_server.dir/crc32.c.o.d"
+  "CMakeFiles/rpc_server.dir/rpc.c.o"
+  "CMakeFiles/rpc_server.dir/rpc.c.o.d"
   "CMakeFiles/rpc_server.dir/rpc_server.c.o"
   "CMakeFiles/rpc_server.dir/rpc_server.c.o.d"
   "bin/rpc_server"

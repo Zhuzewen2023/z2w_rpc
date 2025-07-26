@@ -1,4 +1,6 @@
 #include "nty_coroutine.h"
+#include "crc32.h"
+#include "rpc.h"
 
 #include <arpa/inet.h>
 
@@ -22,24 +24,44 @@ void rpc_handle(void *arg) {
 	}";
 
 	while (1) {
-		
-		char buf[1024] = {0};
-		ret = recv(fd, buf, 1024, 0);
-		if (ret > 0) {
-			if(fd > MAX_CLIENT_NUM) 
-			printf("read from server: %.*s\n", ret, buf);
-
-			ret = send(fd, response, strlen(response), 0);
-			if (ret == -1) {
-				close(fd);
-				break;
-			}
-		} else if (ret == 0) {	
-			close(fd);
+		char header[RPC_HEADER_LENGTH] = {0};
+		int ret = recv(fd, header, RPC_HEADER_LENGTH, 0);
+		if (ret < 0) {
+			break;
+		} else if (ret == 0) {
+			printf("client close\n");
 			break;
 		}
 
+		unsigned int crc32 = *(unsigned int *)header;
+		unsigned short length = *(unsigned short *)(header + 4);
+
+		char *payload = (char *)malloc((length + 1) * sizeof(char));
+		if (payload == NULL) {
+			continue;
+		}
+		memset(payload, 0, (length + 1) * sizeof(char));
+		ret = recv(fd, payload, length, 0);
+		assert(ret == length);
+
+		printf("request payload: %s\n", payload);
+		if (crc32 != calc_crc32(payload, length)) {
+			printf("crc32 check failed\n");
+			free(payload);
+			break;
+		}
+
+		char *response_header = rpc_header_encode(response);
+		ret = send(fd, response_header, RPC_HEADER_LENGTH, 0);
+
+		ret = send(fd, response, strlen(response), 0);
+		free(response_header);
+		free(payload);
+
 	}
+	close(fd);
+	fd = -1;
+	
 }
 
 

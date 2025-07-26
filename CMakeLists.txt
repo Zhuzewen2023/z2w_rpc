@@ -14,11 +14,13 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 set(SERVER_SOURCES
     rpc_server.c
     crc32.c
+    rpc.c
 )
 
 set(CLIENT_SOURCES
     rpc_client.c
     crc32.c
+    rpc.c
 )
 
 add_library(ntyco STATIC IMPORTED)

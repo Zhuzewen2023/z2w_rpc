@@ -1,5 +1,6 @@
 #include "nty_coroutine.h"
 #include "crc32.h"
+#include "rpc.h"
 
 #include <arpa/inet.h>
 #include <stdio.h>
@@ -14,8 +15,6 @@
 #include <sys/epoll.h>
 #include <fcntl.h>
 #include <errno.h>
-
-#define RPC_HEADER_LENGTH   6 //CRC 4BYTES + LENGTH 2BYTES
 
 int connect_tcp_server(const char *ip, unsigned short port)
 {
@@ -33,10 +32,7 @@ int connect_tcp_server(const char *ip, unsigned short port)
     return connfd;
 }
 
-char* rpc_header_encode(char *request)
-{
-    char *header = (char *)malloc(RPC_HEADER_LENGTH);
-}
+
 
 int main(int argc, char **argv)
 {
@@ -54,12 +50,43 @@ int main(int argc, char **argv)
         \"callerid\" : 12345\n \
     }";
 
-    int sent = send(connfd, request, strlen(request), 0);
+    char *header = rpc_header_encode(request);
 
-    char buffer[1024] = {0};
-    int recvd = recv(connfd, buffer, 1024, 0);
+    int sent = send(connfd, header, RPC_HEADER_LENGTH, 0);
 
-    printf("recv: %s\n", buffer);
+    sent = send(connfd, request, strlen(request), 0);
+
+    free(header);
+
+    while (1) {
+		char recv_header[RPC_HEADER_LENGTH] = {0};
+		int ret = recv(connfd, recv_header, RPC_HEADER_LENGTH, 0);
+		if (ret < 0) {
+			break;
+		} else if (ret == 0) {
+			printf("server close\n");
+			break;
+		}
+
+		unsigned int crc32 = *(unsigned int *)recv_header;
+		unsigned short length = *(unsigned short *)(recv_header + 4);
+
+		char *payload = (char *)malloc((length + 1) * sizeof(char));
+		if (payload == NULL) {
+			continue;
+		}
+		memset(payload, 0, (length + 1) * sizeof(char));
+		ret = recv(connfd, payload, length, 0);
+		assert(ret == length);
+		if (crc32 != calc_crc32(payload, length)) {
+		    printf("crc32 check failed\n");
+		    free(payload);
+		    continue;
+		}
+
+        printf("response payload: %s\n", payload);
+		free(payload);
+    }
 
     close(connfd);
 
