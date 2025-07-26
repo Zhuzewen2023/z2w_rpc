@@ -1,0 +1,1 @@
+/usr/bin/cc CMakeFiles/rpc_server.dir/rpc_server.c.o CMakeFiles/rpc_server.dir/crc32.c.o -o bin/rpc_server  /home/z2w/share/z2w_rpc/libntyco.a -lpthread 

@@ -1,0 +1,4 @@
+/home/z2w/share/z2w_rpc/build/CMakeFiles/rpc_server.dir
+/home/z2w/share/z2w_rpc/build/CMakeFiles/rpc_client.dir
+/home/z2w/share/z2w_rpc/build/CMakeFiles/edit_cache.dir
+/home/z2w/share/z2w_rpc/build/CMakeFiles/rebuild_cache.dir
