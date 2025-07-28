@@ -54,10 +54,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/z2w/share/z2w_rpc
+CMAKE_SOURCE_DIR = /home/z2w/shared_work/z2w_rpc
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/z2w/share/z2w_rpc/build
+CMAKE_BINARY_DIR = /home/z2w/shared_work/z2w_rpc/build
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -65,6 +65,7 @@ CMAKE_BINARY_DIR = /home/z2w/share/z2w_rpc/build
 # The main recursive "all" target.
 all: CMakeFiles/rpc_server.dir/all
 all: CMakeFiles/rpc_client.dir/all
+all: CMakeFiles/register_json_test.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -74,6 +75,7 @@ preinstall:
 # The main recursive "clean" target.
 clean: CMakeFiles/rpc_server.dir/clean
 clean: CMakeFiles/rpc_client.dir/clean
+clean: CMakeFiles/register_json_test.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -83,14 +85,14 @@ clean: CMakeFiles/rpc_client.dir/clean
 CMakeFiles/rpc_server.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_server.dir/build.make CMakeFiles/rpc_server.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_server.dir/build.make CMakeFiles/rpc_server.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/z2w/share/z2w_rpc/build/CMakeFiles --progress-num=5,6,7,8 "Built target rpc_server"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/z2w/shared_work/z2w_rpc/build/CMakeFiles --progress-num=11,12,13,14,15 "Built target rpc_server"
 .PHONY : CMakeFiles/rpc_server.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/rpc_server.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/z2w/share/z2w_rpc/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/z2w/shared_work/z2w_rpc/build/CMakeFiles 5
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/rpc_server.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/z2w/share/z2w_rpc/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/z2w/shared_work/z2w_rpc/build/CMakeFiles 0
 .PHONY : CMakeFiles/rpc_server.dir/rule
 
 # Convenience name for target.
@@ -109,14 +111,14 @@ CMakeFiles/rpc_server.dir/clean:
 CMakeFiles/rpc_client.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_client.dir/build.make CMakeFiles/rpc_client.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_client.dir/build.make CMakeFiles/rpc_client.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/z2w/share/z2w_rpc/build/CMakeFiles --progress-num=1,2,3,4 "Built target rpc_client"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/z2w/shared_work/z2w_rpc/build/CMakeFiles --progress-num=6,7,8,9,10 "Built target rpc_client"
 .PHONY : CMakeFiles/rpc_client.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/rpc_client.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/z2w/share/z2w_rpc/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/z2w/shared_work/z2w_rpc/build/CMakeFiles 5
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/rpc_client.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/z2w/share/z2w_rpc/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/z2w/shared_work/z2w_rpc/build/CMakeFiles 0
 .PHONY : CMakeFiles/rpc_client.dir/rule
 
 # Convenience name for target.
@@ -127,6 +129,32 @@ rpc_client: CMakeFiles/rpc_client.dir/rule
 CMakeFiles/rpc_client.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_client.dir/build.make CMakeFiles/rpc_client.dir/clean
 .PHONY : CMakeFiles/rpc_client.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/register_json_test.dir
+
+# All Build rule for target.
+CMakeFiles/register_json_test.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/register_json_test.dir/build.make CMakeFiles/register_json_test.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/register_json_test.dir/build.make CMakeFiles/register_json_test.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/z2w/shared_work/z2w_rpc/build/CMakeFiles --progress-num=1,2,3,4,5 "Built target register_json_test"
+.PHONY : CMakeFiles/register_json_test.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/register_json_test.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/z2w/shared_work/z2w_rpc/build/CMakeFiles 5
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/register_json_test.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/z2w/shared_work/z2w_rpc/build/CMakeFiles 0
+.PHONY : CMakeFiles/register_json_test.dir/rule
+
+# Convenience name for target.
+register_json_test: CMakeFiles/register_json_test.dir/rule
+.PHONY : register_json_test
+
+# clean rule for target.
+CMakeFiles/register_json_test.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/register_json_test.dir/build.make CMakeFiles/register_json_test.dir/clean
+.PHONY : CMakeFiles/register_json_test.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

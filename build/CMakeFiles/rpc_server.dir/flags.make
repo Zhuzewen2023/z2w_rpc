@@ -4,7 +4,7 @@
 # compile C with /usr/bin/cc
 C_DEFINES = 
 
-C_INCLUDES = -I/home/z2w/share/z2w_rpc -isystem /home/z2w/share/z2w_rpc/NtyCo/core
+C_INCLUDES = -I/home/z2w/shared_work/z2w_rpc -isystem /home/z2w/shared_work/z2w_rpc/NtyCo/core
 
 C_FLAGS = 
 

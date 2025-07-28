@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/z2w/share/z2w_rpc
+CMAKE_SOURCE_DIR = /home/z2w/shared_work/z2w_rpc
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/z2w/share/z2w_rpc/build
+CMAKE_BINARY_DIR = /home/z2w/shared_work/z2w_rpc/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/z2w/share/z2w_rpc/build/CMakeFiles /home/z2w/share/z2w_rpc/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/z2w/shared_work/z2w_rpc/build/CMakeFiles /home/z2w/shared_work/z2w_rpc/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/z2w/share/z2w_rpc/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/z2w/shared_work/z2w_rpc/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -142,6 +142,49 @@ rpc_client/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_client.dir/build.make CMakeFiles/rpc_client.dir/build
 .PHONY : rpc_client/fast
 
+#=============================================================================
+# Target rules for targets named register_json_test
+
+# Build rule for target.
+register_json_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 register_json_test
+.PHONY : register_json_test
+
+# fast build rule for target.
+register_json_test/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/register_json_test.dir/build.make CMakeFiles/register_json_test.dir/build
+.PHONY : register_json_test/fast
+
+cJSON.o: cJSON.c.o
+.PHONY : cJSON.o
+
+# target to build an object file
+cJSON.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_server.dir/build.make CMakeFiles/rpc_server.dir/cJSON.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_client.dir/build.make CMakeFiles/rpc_client.dir/cJSON.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/register_json_test.dir/build.make CMakeFiles/register_json_test.dir/cJSON.c.o
+.PHONY : cJSON.c.o
+
+cJSON.i: cJSON.c.i
+.PHONY : cJSON.i
+
+# target to preprocess a source file
+cJSON.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_server.dir/build.make CMakeFiles/rpc_server.dir/cJSON.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_client.dir/build.make CMakeFiles/rpc_client.dir/cJSON.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/register_json_test.dir/build.make CMakeFiles/register_json_test.dir/cJSON.c.i
+.PHONY : cJSON.c.i
+
+cJSON.s: cJSON.c.s
+.PHONY : cJSON.s
+
+# target to generate assembly for a file
+cJSON.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_server.dir/build.make CMakeFiles/rpc_server.dir/cJSON.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_client.dir/build.make CMakeFiles/rpc_client.dir/cJSON.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/register_json_test.dir/build.make CMakeFiles/register_json_test.dir/cJSON.c.s
+.PHONY : cJSON.c.s
+
 crc32.o: crc32.c.o
 .PHONY : crc32.o
 
@@ -149,6 +192,7 @@ crc32.o: crc32.c.o
 crc32.c.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_server.dir/build.make CMakeFiles/rpc_server.dir/crc32.c.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_client.dir/build.make CMakeFiles/rpc_client.dir/crc32.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/register_json_test.dir/build.make CMakeFiles/register_json_test.dir/crc32.c.o
 .PHONY : crc32.c.o
 
 crc32.i: crc32.c.i
@@ -158,6 +202,7 @@ crc32.i: crc32.c.i
 crc32.c.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_server.dir/build.make CMakeFiles/rpc_server.dir/crc32.c.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_client.dir/build.make CMakeFiles/rpc_client.dir/crc32.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/register_json_test.dir/build.make CMakeFiles/register_json_test.dir/crc32.c.i
 .PHONY : crc32.c.i
 
 crc32.s: crc32.c.s
@@ -167,7 +212,32 @@ crc32.s: crc32.c.s
 crc32.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_server.dir/build.make CMakeFiles/rpc_server.dir/crc32.c.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_client.dir/build.make CMakeFiles/rpc_client.dir/crc32.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/register_json_test.dir/build.make CMakeFiles/register_json_test.dir/crc32.c.s
 .PHONY : crc32.c.s
+
+register_json_test.o: register_json_test.c.o
+.PHONY : register_json_test.o
+
+# target to build an object file
+register_json_test.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/register_json_test.dir/build.make CMakeFiles/register_json_test.dir/register_json_test.c.o
+.PHONY : register_json_test.c.o
+
+register_json_test.i: register_json_test.c.i
+.PHONY : register_json_test.i
+
+# target to preprocess a source file
+register_json_test.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/register_json_test.dir/build.make CMakeFiles/register_json_test.dir/register_json_test.c.i
+.PHONY : register_json_test.c.i
+
+register_json_test.s: register_json_test.c.s
+.PHONY : register_json_test.s
+
+# target to generate assembly for a file
+register_json_test.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/register_json_test.dir/build.make CMakeFiles/register_json_test.dir/register_json_test.c.s
+.PHONY : register_json_test.c.s
 
 rpc.o: rpc.c.o
 .PHONY : rpc.o
@@ -176,6 +246,7 @@ rpc.o: rpc.c.o
 rpc.c.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_server.dir/build.make CMakeFiles/rpc_server.dir/rpc.c.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_client.dir/build.make CMakeFiles/rpc_client.dir/rpc.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/register_json_test.dir/build.make CMakeFiles/register_json_test.dir/rpc.c.o
 .PHONY : rpc.c.o
 
 rpc.i: rpc.c.i
@@ -185,6 +256,7 @@ rpc.i: rpc.c.i
 rpc.c.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_server.dir/build.make CMakeFiles/rpc_server.dir/rpc.c.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_client.dir/build.make CMakeFiles/rpc_client.dir/rpc.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/register_json_test.dir/build.make CMakeFiles/register_json_test.dir/rpc.c.i
 .PHONY : rpc.c.i
 
 rpc.s: rpc.c.s
@@ -194,6 +266,7 @@ rpc.s: rpc.c.s
 rpc.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_server.dir/build.make CMakeFiles/rpc_server.dir/rpc.c.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_client.dir/build.make CMakeFiles/rpc_client.dir/rpc.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/register_json_test.dir/build.make CMakeFiles/register_json_test.dir/rpc.c.s
 .PHONY : rpc.c.s
 
 rpc_client.o: rpc_client.c.o
@@ -252,11 +325,18 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... register_json_test"
 	@echo "... rpc_client"
 	@echo "... rpc_server"
+	@echo "... cJSON.o"
+	@echo "... cJSON.i"
+	@echo "... cJSON.s"
 	@echo "... crc32.o"
 	@echo "... crc32.i"
 	@echo "... crc32.s"
+	@echo "... register_json_test.o"
+	@echo "... register_json_test.i"
+	@echo "... register_json_test.s"
 	@echo "... rpc.o"
 	@echo "... rpc.i"
 	@echo "... rpc.s"

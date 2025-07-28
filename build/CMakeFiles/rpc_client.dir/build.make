@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/z2w/share/z2w_rpc
+CMAKE_SOURCE_DIR = /home/z2w/shared_work/z2w_rpc
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/z2w/share/z2w_rpc/build
+CMAKE_BINARY_DIR = /home/z2w/shared_work/z2w_rpc/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/rpc_client.dir/depend.make
@@ -70,52 +70,67 @@ include CMakeFiles/rpc_client.dir/progress.make
 include CMakeFiles/rpc_client.dir/flags.make
 
 CMakeFiles/rpc_client.dir/rpc_client.c.o: CMakeFiles/rpc_client.dir/flags.make
-CMakeFiles/rpc_client.dir/rpc_client.c.o: /home/z2w/share/z2w_rpc/rpc_client.c
+CMakeFiles/rpc_client.dir/rpc_client.c.o: /home/z2w/shared_work/z2w_rpc/rpc_client.c
 CMakeFiles/rpc_client.dir/rpc_client.c.o: CMakeFiles/rpc_client.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/z2w/share/z2w_rpc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/rpc_client.dir/rpc_client.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/rpc_client.dir/rpc_client.c.o -MF CMakeFiles/rpc_client.dir/rpc_client.c.o.d -o CMakeFiles/rpc_client.dir/rpc_client.c.o -c /home/z2w/share/z2w_rpc/rpc_client.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/z2w/shared_work/z2w_rpc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/rpc_client.dir/rpc_client.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/rpc_client.dir/rpc_client.c.o -MF CMakeFiles/rpc_client.dir/rpc_client.c.o.d -o CMakeFiles/rpc_client.dir/rpc_client.c.o -c /home/z2w/shared_work/z2w_rpc/rpc_client.c
 
 CMakeFiles/rpc_client.dir/rpc_client.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/rpc_client.dir/rpc_client.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/z2w/share/z2w_rpc/rpc_client.c > CMakeFiles/rpc_client.dir/rpc_client.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/z2w/shared_work/z2w_rpc/rpc_client.c > CMakeFiles/rpc_client.dir/rpc_client.c.i
 
 CMakeFiles/rpc_client.dir/rpc_client.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/rpc_client.dir/rpc_client.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/z2w/share/z2w_rpc/rpc_client.c -o CMakeFiles/rpc_client.dir/rpc_client.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/z2w/shared_work/z2w_rpc/rpc_client.c -o CMakeFiles/rpc_client.dir/rpc_client.c.s
 
 CMakeFiles/rpc_client.dir/crc32.c.o: CMakeFiles/rpc_client.dir/flags.make
-CMakeFiles/rpc_client.dir/crc32.c.o: /home/z2w/share/z2w_rpc/crc32.c
+CMakeFiles/rpc_client.dir/crc32.c.o: /home/z2w/shared_work/z2w_rpc/crc32.c
 CMakeFiles/rpc_client.dir/crc32.c.o: CMakeFiles/rpc_client.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/z2w/share/z2w_rpc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/rpc_client.dir/crc32.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/rpc_client.dir/crc32.c.o -MF CMakeFiles/rpc_client.dir/crc32.c.o.d -o CMakeFiles/rpc_client.dir/crc32.c.o -c /home/z2w/share/z2w_rpc/crc32.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/z2w/shared_work/z2w_rpc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/rpc_client.dir/crc32.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/rpc_client.dir/crc32.c.o -MF CMakeFiles/rpc_client.dir/crc32.c.o.d -o CMakeFiles/rpc_client.dir/crc32.c.o -c /home/z2w/shared_work/z2w_rpc/crc32.c
 
 CMakeFiles/rpc_client.dir/crc32.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/rpc_client.dir/crc32.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/z2w/share/z2w_rpc/crc32.c > CMakeFiles/rpc_client.dir/crc32.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/z2w/shared_work/z2w_rpc/crc32.c > CMakeFiles/rpc_client.dir/crc32.c.i
 
 CMakeFiles/rpc_client.dir/crc32.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/rpc_client.dir/crc32.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/z2w/share/z2w_rpc/crc32.c -o CMakeFiles/rpc_client.dir/crc32.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/z2w/shared_work/z2w_rpc/crc32.c -o CMakeFiles/rpc_client.dir/crc32.c.s
 
 CMakeFiles/rpc_client.dir/rpc.c.o: CMakeFiles/rpc_client.dir/flags.make
-CMakeFiles/rpc_client.dir/rpc.c.o: /home/z2w/share/z2w_rpc/rpc.c
+CMakeFiles/rpc_client.dir/rpc.c.o: /home/z2w/shared_work/z2w_rpc/rpc.c
 CMakeFiles/rpc_client.dir/rpc.c.o: CMakeFiles/rpc_client.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/z2w/share/z2w_rpc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/rpc_client.dir/rpc.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/rpc_client.dir/rpc.c.o -MF CMakeFiles/rpc_client.dir/rpc.c.o.d -o CMakeFiles/rpc_client.dir/rpc.c.o -c /home/z2w/share/z2w_rpc/rpc.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/z2w/shared_work/z2w_rpc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/rpc_client.dir/rpc.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/rpc_client.dir/rpc.c.o -MF CMakeFiles/rpc_client.dir/rpc.c.o.d -o CMakeFiles/rpc_client.dir/rpc.c.o -c /home/z2w/shared_work/z2w_rpc/rpc.c
 
 CMakeFiles/rpc_client.dir/rpc.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/rpc_client.dir/rpc.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/z2w/share/z2w_rpc/rpc.c > CMakeFiles/rpc_client.dir/rpc.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/z2w/shared_work/z2w_rpc/rpc.c > CMakeFiles/rpc_client.dir/rpc.c.i
 
 CMakeFiles/rpc_client.dir/rpc.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/rpc_client.dir/rpc.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/z2w/share/z2w_rpc/rpc.c -o CMakeFiles/rpc_client.dir/rpc.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/z2w/shared_work/z2w_rpc/rpc.c -o CMakeFiles/rpc_client.dir/rpc.c.s
+
+CMakeFiles/rpc_client.dir/cJSON.c.o: CMakeFiles/rpc_client.dir/flags.make
+CMakeFiles/rpc_client.dir/cJSON.c.o: /home/z2w/shared_work/z2w_rpc/cJSON.c
+CMakeFiles/rpc_client.dir/cJSON.c.o: CMakeFiles/rpc_client.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/z2w/shared_work/z2w_rpc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/rpc_client.dir/cJSON.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/rpc_client.dir/cJSON.c.o -MF CMakeFiles/rpc_client.dir/cJSON.c.o.d -o CMakeFiles/rpc_client.dir/cJSON.c.o -c /home/z2w/shared_work/z2w_rpc/cJSON.c
+
+CMakeFiles/rpc_client.dir/cJSON.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/rpc_client.dir/cJSON.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/z2w/shared_work/z2w_rpc/cJSON.c > CMakeFiles/rpc_client.dir/cJSON.c.i
+
+CMakeFiles/rpc_client.dir/cJSON.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/rpc_client.dir/cJSON.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/z2w/shared_work/z2w_rpc/cJSON.c -o CMakeFiles/rpc_client.dir/cJSON.c.s
 
 # Object files for target rpc_client
 rpc_client_OBJECTS = \
 "CMakeFiles/rpc_client.dir/rpc_client.c.o" \
 "CMakeFiles/rpc_client.dir/crc32.c.o" \
-"CMakeFiles/rpc_client.dir/rpc.c.o"
+"CMakeFiles/rpc_client.dir/rpc.c.o" \
+"CMakeFiles/rpc_client.dir/cJSON.c.o"
 
 # External object files for target rpc_client
 rpc_client_EXTERNAL_OBJECTS =
@@ -123,10 +138,11 @@ rpc_client_EXTERNAL_OBJECTS =
 bin/rpc_client: CMakeFiles/rpc_client.dir/rpc_client.c.o
 bin/rpc_client: CMakeFiles/rpc_client.dir/crc32.c.o
 bin/rpc_client: CMakeFiles/rpc_client.dir/rpc.c.o
+bin/rpc_client: CMakeFiles/rpc_client.dir/cJSON.c.o
 bin/rpc_client: CMakeFiles/rpc_client.dir/build.make
-bin/rpc_client: /home/z2w/share/z2w_rpc/libntyco.a
+bin/rpc_client: /home/z2w/shared_work/z2w_rpc/libntyco.a
 bin/rpc_client: CMakeFiles/rpc_client.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/z2w/share/z2w_rpc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking C executable bin/rpc_client"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/z2w/shared_work/z2w_rpc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking C executable bin/rpc_client"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/rpc_client.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -138,6 +154,6 @@ CMakeFiles/rpc_client.dir/clean:
 .PHONY : CMakeFiles/rpc_client.dir/clean
 
 CMakeFiles/rpc_client.dir/depend:
-	cd /home/z2w/share/z2w_rpc/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/z2w/share/z2w_rpc /home/z2w/share/z2w_rpc /home/z2w/share/z2w_rpc/build /home/z2w/share/z2w_rpc/build /home/z2w/share/z2w_rpc/build/CMakeFiles/rpc_client.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/z2w/shared_work/z2w_rpc/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/z2w/shared_work/z2w_rpc /home/z2w/shared_work/z2w_rpc /home/z2w/shared_work/z2w_rpc/build /home/z2w/shared_work/z2w_rpc/build /home/z2w/shared_work/z2w_rpc/build/CMakeFiles/rpc_client.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/rpc_client.dir/depend
 

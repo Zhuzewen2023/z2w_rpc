@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/rpc_client.dir/cJSON.c.o"
+  "CMakeFiles/rpc_client.dir/cJSON.c.o.d"
   "CMakeFiles/rpc_client.dir/crc32.c.o"
   "CMakeFiles/rpc_client.dir/crc32.c.o.d"
   "CMakeFiles/rpc_client.dir/rpc.c.o"

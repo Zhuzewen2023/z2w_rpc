@@ -8,9 +8,10 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/z2w/share/z2w_rpc/crc32.c" "CMakeFiles/rpc_client.dir/crc32.c.o" "gcc" "CMakeFiles/rpc_client.dir/crc32.c.o.d"
-  "/home/z2w/share/z2w_rpc/rpc.c" "CMakeFiles/rpc_client.dir/rpc.c.o" "gcc" "CMakeFiles/rpc_client.dir/rpc.c.o.d"
-  "/home/z2w/share/z2w_rpc/rpc_client.c" "CMakeFiles/rpc_client.dir/rpc_client.c.o" "gcc" "CMakeFiles/rpc_client.dir/rpc_client.c.o.d"
+  "/home/z2w/shared_work/z2w_rpc/cJSON.c" "CMakeFiles/rpc_client.dir/cJSON.c.o" "gcc" "CMakeFiles/rpc_client.dir/cJSON.c.o.d"
+  "/home/z2w/shared_work/z2w_rpc/crc32.c" "CMakeFiles/rpc_client.dir/crc32.c.o" "gcc" "CMakeFiles/rpc_client.dir/crc32.c.o.d"
+  "/home/z2w/shared_work/z2w_rpc/rpc.c" "CMakeFiles/rpc_client.dir/rpc.c.o" "gcc" "CMakeFiles/rpc_client.dir/rpc.c.o.d"
+  "/home/z2w/shared_work/z2w_rpc/rpc_client.c" "CMakeFiles/rpc_client.dir/rpc_client.c.o" "gcc" "CMakeFiles/rpc_client.dir/rpc_client.c.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

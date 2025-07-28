@@ -1,0 +1,30 @@
+{
+    "remote" : "192.168.245.129",
+    "port" : 9096,
+    "config" : [
+        {
+            "method" : "sayhello",
+            "params" : ["msg", "length"],
+            "types" : ["char*", "char*"],
+            "rettype": "char*"
+        },
+        {
+            "method" : "add",
+            "params" : ["a", "b"],
+            "types" : ["int", "int"],
+            "rettype" : "int"
+        },
+        {
+            "method" : "sub",
+            "params" : ["a", "b"],
+            "types" : ["float", "float"],
+            "rettype" : "float"
+        },
+        {
+            "method" : "mul",
+            "params" : ["a", "b"],
+            "types" : ["double", "double"],
+            "rettype" : "double"
+        }
+    ]
+}

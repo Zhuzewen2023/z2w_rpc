@@ -1,7 +1,8 @@
 CMakeFiles/rpc_server.dir/rpc_server.c.o: \
- /home/z2w/share/z2w_rpc/rpc_server.c /usr/include/stdc-predef.h \
- /home/z2w/share/z2w_rpc/NtyCo/core/nty_coroutine.h /usr/include/dlfcn.h \
- /usr/include/features.h /usr/include/features-time64.h \
+ /home/z2w/shared_work/z2w_rpc/rpc_server.c /usr/include/stdc-predef.h \
+ /home/z2w/shared_work/z2w_rpc/NtyCo/core/nty_coroutine.h \
+ /usr/include/dlfcn.h /usr/include/features.h \
+ /usr/include/features-time64.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
  /usr/include/x86_64-linux-gnu/bits/timesize.h \
  /usr/include/x86_64-linux-gnu/sys/cdefs.h \
@@ -122,8 +123,8 @@ CMakeFiles/rpc_server.dir/rpc_server.c.o: \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
  /usr/include/x86_64-linux-gnu/bits/types/error_t.h \
- /home/z2w/share/z2w_rpc/NtyCo/core/nty_queue.h \
- /home/z2w/share/z2w_rpc/NtyCo/core/nty_tree.h \
- /home/z2w/share/z2w_rpc/crc32.h /home/z2w/share/z2w_rpc/rpc.h \
- /usr/include/arpa/inet.h /usr/include/netinet/in.h \
- /usr/include/x86_64-linux-gnu/bits/in.h
+ /home/z2w/shared_work/z2w_rpc/NtyCo/core/nty_queue.h \
+ /home/z2w/shared_work/z2w_rpc/NtyCo/core/nty_tree.h \
+ /home/z2w/shared_work/z2w_rpc/crc32.h \
+ /home/z2w/shared_work/z2w_rpc/rpc.h /usr/include/arpa/inet.h \
+ /usr/include/netinet/in.h /usr/include/x86_64-linux-gnu/bits/in.h

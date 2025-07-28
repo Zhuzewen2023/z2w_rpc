@@ -1,0 +1,1 @@
+/usr/bin/cc -rdynamic CMakeFiles/register_json_test.dir/register_json_test.c.o CMakeFiles/register_json_test.dir/rpc.c.o CMakeFiles/register_json_test.dir/cJSON.c.o CMakeFiles/register_json_test.dir/crc32.c.o -o bin/register_json_test  /home/z2w/shared_work/z2w_rpc/libntyco.a -lpthread -ldl 

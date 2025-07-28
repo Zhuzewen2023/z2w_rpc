@@ -9,19 +9,14 @@
 
 
 
+
+
 void rpc_handle(void *arg) {
 	int fd = *(int *)arg;
-	free(arg);
+	rpc_free(arg);
 	int ret = 0;
 
-	char *response = "{ \n \
-	\"method\" : \"sayhello\",\n \
-	\"param\" : {\n \
-		\"msg\" : \"bn cprz\",\n \
-		\"length\" : 7\n \
-	},\n \
-	\"callerid\" : 12345\n\
-	}";
+
 
 	while (1) {
 		char header[RPC_HEADER_LENGTH] = {0};
@@ -36,7 +31,7 @@ void rpc_handle(void *arg) {
 		unsigned int crc32 = *(unsigned int *)header;
 		unsigned short length = *(unsigned short *)(header + 4);
 
-		char *payload = (char *)malloc((length + 1) * sizeof(char));
+		char *payload = (char *)rpc_malloc((length + 1) * sizeof(char));
 		if (payload == NULL) {
 			continue;
 		}
@@ -47,16 +42,18 @@ void rpc_handle(void *arg) {
 		printf("request payload: %s\n", payload);
 		if (crc32 != calc_crc32(payload, length)) {
 			printf("crc32 check failed\n");
-			free(payload);
+			rpc_free(payload);
 			break;
 		}
+
+		char *response = rpc_process(payload);
 
 		char *response_header = rpc_header_encode(response);
 		ret = send(fd, response_header, RPC_HEADER_LENGTH, 0);
 
 		ret = send(fd, response, strlen(response), 0);
-		free(response_header);
-		free(payload);
+		rpc_free(response_header);
+		rpc_free(payload);
 
 	}
 	close(fd);
@@ -68,7 +65,7 @@ void rpc_handle(void *arg) {
 void rpc_listen(void *arg) {
 
 	unsigned short port = *(unsigned short *)arg;
-	free(arg);
+	rpc_free(arg);
 
 	int fd = socket(AF_INET, SOCK_STREAM, 0);
 	if (fd < 0) return ;
@@ -102,7 +99,7 @@ void rpc_listen(void *arg) {
 		printf("new client comming\n");
 
 		nty_coroutine *read_co;
-		int *arg = malloc(sizeof(int));
+		int *arg = rpc_malloc(sizeof(int));
 		*arg = cli_fd;
 		nty_coroutine_create(&read_co, rpc_handle, arg);
 
