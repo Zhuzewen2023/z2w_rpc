@@ -331,3 +331,13 @@ int rpc_get_caller_id()
 {
     return rpc_global_caller_id++; //atomic
 }
+
+int rpc_load_register(char *filename)
+{
+    int ret = -1;
+    char *json = rpc_read_register_config(filename);
+    //printf("register json: %s\n", json);
+    ret = rpc_decode_register_json(json);
+    free(json);
+    return ret;
+}

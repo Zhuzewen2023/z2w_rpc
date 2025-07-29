@@ -42,6 +42,7 @@ char *rpc_read_register_config(char *filename);
 int rpc_decode_register_json(char *json);
 rpc_func_t* rpc_get_caller_table(void);
 int rpc_get_caller_id(void);
+int rpc_load_register(char *filename);
 
 #ifdef __cplusplus
 }

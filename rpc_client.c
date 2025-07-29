@@ -34,7 +34,7 @@ int connect_tcp_server(const char *ip, unsigned short port)
     return connfd;
 }
 
-int rpc_client_session(char *request_json)
+char* rpc_client_session(char *request_json)
 {
     const char *ip = "192.168.245.129";
     unsigned short port = 9096;
@@ -55,10 +55,10 @@ int rpc_client_session(char *request_json)
     int ret = recv(connfd, recv_header, RPC_HEADER_LENGTH, 0);
     if (ret < 0) {
         printf("recv error\n");
-        return -1;
+        return NULL;
     } else if (ret == 0) {
         printf("server close\n");
-        return -1;
+        return NULL;
     }
 
     unsigned int crc32 = *(unsigned int *)recv_header;
@@ -67,7 +67,7 @@ int rpc_client_session(char *request_json)
     char *payload = (char *)rpc_malloc((length + 1) * sizeof(char));
     if (payload == NULL) {
         printf("payload malloc failed\n");
-        return -1;
+        return NULL;
     }
     memset(payload, 0, (length + 1) * sizeof(char));
     ret = recv(connfd, payload, length, 0);
@@ -75,58 +75,56 @@ int rpc_client_session(char *request_json)
     if (crc32 != calc_crc32(payload, length)) {
         printf("crc32 check failed\n");
         rpc_free(payload);
-        return -1;
+        return NULL;
     }
 
     printf("response payload: %s\n", payload);
-    rpc_free(payload);
+    //rpc_free(payload);
 
     close(connfd);
+    return payload;
 }
 
 char *sayhello(char *msg, int length)
 {
     char *request = rpc_request_json_encode(2, msg, length);    /*generate json*/
-    printf("request json: %s\n", request);
-    //char *response = rpc_client_session(request);               /*send request and recv response */
+    // printf("request json: %s\n", request);
+    char *response = rpc_client_session(request);               /*send request and recv response */
     //char *result = rpc_response_json_decode(response);          /*decode response and get result*/
 }
 
 int add(int a, int b)
 {
     char *request = rpc_request_json_encode(2, a, b);
-        printf("request json: %s\n", request);
-   // char *response = rpc_client_session(request);
+    // printf("request json: %s\n", request);
+    char *response = rpc_client_session(request);
    // char *result = rpc_response_json_decode(response);
 }
 
 float sub(float a, float b)
 {
     char *request = rpc_request_json_encode(2, a, b);
-        printf("request json: %s\n", request);
-    //char *response = rpc_client_session(request);
+    // printf("request json: %s\n", request);
+    char *response = rpc_client_session(request);
     //char *result = rpc_response_json_decode(response);
 }
 
 double mul(double a, double b)
 {
     char *request = rpc_request_json_encode(2, a, b);
-        printf("request json: %s\n", request);
-    //char *response = rpc_client_session(request);
+    // printf("request json: %s\n", request);
+    char *response = rpc_client_session(request);
     //char *result = rpc_response_json_decode(response);
 }
 
 int main(int argc, char **argv)
 {
-    // if (argc != 2) {
-    //     printf("Usage: ./%s <filename>\n", argv[0]);
-    //     return -1;
-    // }
+    if (argc != 2) {
+        printf("Usage: ./%s <filename>\n", argv[0]);
+        return -1;
+    }
 
-    char *filename = "../../register.json";
-    char *json = rpc_read_register_config(filename);
-    //printf("register json: %s\n", json);
-    rpc_decode_register_json(json);
+    rpc_load_register(argv[1]);
     sayhello("z2w rpc nb", 10);
     add(10,7);
     sub(20,3);
