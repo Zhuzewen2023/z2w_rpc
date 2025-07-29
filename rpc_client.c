@@ -87,6 +87,7 @@ int rpc_client_session(char *request_json)
 char *sayhello(char *msg, int length)
 {
     char *request = rpc_request_json_encode(2, msg, length);    /*generate json*/
+    printf("request json: %s\n", request);
     //char *response = rpc_client_session(request);               /*send request and recv response */
     //char *result = rpc_response_json_decode(response);          /*decode response and get result*/
 }
@@ -94,30 +95,33 @@ char *sayhello(char *msg, int length)
 int add(int a, int b)
 {
     char *request = rpc_request_json_encode(2, a, b);
-    char *response = rpc_client_session(request);
-    char *result = rpc_response_json_decode(response);
+        printf("request json: %s\n", request);
+   // char *response = rpc_client_session(request);
+   // char *result = rpc_response_json_decode(response);
 }
 
 float sub(float a, float b)
 {
     char *request = rpc_request_json_encode(2, a, b);
-    char *response = rpc_client_session(request);
-    char *result = rpc_response_json_decode(response);
+        printf("request json: %s\n", request);
+    //char *response = rpc_client_session(request);
+    //char *result = rpc_response_json_decode(response);
 }
 
 double mul(double a, double b)
 {
     char *request = rpc_request_json_encode(2, a, b);
-    char *response = rpc_client_session(request);
-    char *result = rpc_response_json_decode(response);
+        printf("request json: %s\n", request);
+    //char *response = rpc_client_session(request);
+    //char *result = rpc_response_json_decode(response);
 }
 
 int main(int argc, char **argv)
 {
-    sayhello(NULL, 1);
-    // add(1,1);
-    // sub(1,1);
-    // mul(1,1);
+    sayhello("z2w rpc nb", 10);
+    add(10,7);
+    sub(20,3);
+    mul(2,3);
 
     return 0;
 }

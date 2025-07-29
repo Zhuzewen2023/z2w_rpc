@@ -15,7 +15,7 @@ int main(int argc, char **argv)
     printf("register json: %s\n", json);
     rpc_decode_register_json(json);
 
-    struct rpc_func *func = rpc_caller_table;
+    struct rpc_func *func = rpc_get_caller_table();
     if (!func) {
         printf("no function\n");
         return 0;

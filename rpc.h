@@ -20,7 +20,6 @@ extern char *mul_response;
 extern char *no_response;
 extern char *rpc_server_ip;
 extern short rpc_server_port;
-extern struct rpc_func *rpc_caller_table;
 
 typedef struct rpc_func
 {
@@ -41,6 +40,8 @@ char* rpc_request_json_encode(int numargs, ...);
 char* rpc_response_json_decode(char *response);  
 char *rpc_read_register_config(char *filename);
 int rpc_decode_register_json(char *json);
+rpc_func_t* rpc_get_caller_table(void);
+int rpc_get_caller_id(void);
 
 #ifdef __cplusplus
 }

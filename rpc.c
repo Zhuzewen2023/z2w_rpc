@@ -154,12 +154,49 @@ char* rpc_request_json_encode(int numargs, ...)
         return NULL;
     }
     
+    struct rpc_func_t* func = rpc_get_caller_table();
+    while (func) {
+        if (strcmp(func->name, func_name) == 0) {
+            break;
+        }
+        func = func->next;
+    }
+
+    if (func == NULL) {
+        printf("func == NULL\n");
+        return NULL;
+    }
+
     cJSON *root = cJSON_CreateObject();
+    cJSON_AddStringToObject(root, "method", func->name);
+    cJSON *params = cJSON_CreateObject();
+
+    va_list args;
+    va_start(args, numargs);
+    int i = 0;
+    for (i = 0; i < func->count; ++i) {
+        if (0 == strcmp(func->param_type[i], "int")) {
+            cJSON_AddNumberToObject(params, func->params[i], va_arg(args, int));
+        } else if (0 == strcmp(func->param_type[i], "float")) {
+            cJSON_AddNumberToObject(params, func->params[i], va_arg(args, double));
+        } else if (0 == strcmp(func->param_type[i], "double")) {
+            cJSON_AddNumberToObject(params, func->params[i], va_arg(args, double));
+        } else if (0 == strcmp(func->param_type[i], "char*")) {
+            cJSON_AddStringToObject(params, func->params[i], va_arg(args, char *));
+        } else {
+            assert(0);
+        }
+    }
+    va_end(args);
+
+    cJSON_AddStringToObject(root, "params", params);
+    cJSON_AddNumberToObject(root, "callerid", rpc_get_caller_id());
+
+    char *json = cJSON_Print(root);
+    cJSON_Delete(params);
+    cJSON_Delete(root);
     
-    cJSON_AddStringToObject(root, "method", func_name);
-    cJSON *param = cJSON_CreateObject();
-    
-    return NULL;
+    return json;
 } 
 
 char* rpc_response_json_decode(char *response)
@@ -194,7 +231,12 @@ char *rpc_read_register_config(char *filename)
 char *rpc_server_ip = NULL;
 short rpc_server_port;
 
-struct rpc_func *rpc_caller_table = NULL;
+static struct rpc_func *rpc_caller_table = NULL;
+
+rpc_func_t* rpc_get_caller_table()
+{
+    return rpc_caller_table;
+}
 
 int rpc_decode_register_json(char *json)
 {
@@ -277,4 +319,10 @@ out:
 
     return ret;
 
+}
+
+static int rpc_global_caller_id;
+int rpc_get_caller_id()
+{
+    return rpc_global_caller_id++; //atomic
 }
