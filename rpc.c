@@ -3,6 +3,8 @@
 #include "rpc.h"
 #include "crc32.h"
 #include "cJSON.h"
+#include "rpc_method.h"
+#include "rpc_client.h"
 
 #include <string.h>
 #include <stdlib.h>
@@ -14,42 +16,8 @@
 #include <dlfcn.h>
 #include <assert.h>
 #include <stdarg.h>
+#include <arpa/inet.h>
 
-char *sayhello_request = "{ \n \
-    \"method\" : \"sayhello\",\n \
-    \"param\" : {\n \
-        \"msg\" : \"zrpc nb\",\n \
-        \"length\" : 7\n \
-    },\n \
-    \"callerid\" : 12345\n \
-}";
-
-char *add_request = "{ \n \
-    \"method\" : \"add\",\n \
-    \"param\" : {\n \
-        \"a\" : 10,\n \
-        \"b\" : 7\n \
-    },\n \
-    \"callerid\" : 12346\n \
-}";
-
-char *sub_request = "{ \n \
-    \"method\" : \"sub\",\n \
-    \"param\" : {\n \
-        \"a\" : 6.7,\n \
-        \"b\" : 3.4\n \
-    },\n \
-    \"callerid\" : 12347\n \
-}";
-
-char *mul_request = "{ \n \
-    \"method\" : \"mul\",\n \
-    \"param\" : {\n \
-        \"a\" : 2.4,\n \
-        \"b\" : 3.6\n \
-    },\n \
-    \"callerid\" : 12348\n \
-}";
 
 char *sayhello_response = "{ \n \
 	\"method\" : \"sayhello\",\n \
@@ -120,17 +88,41 @@ char *rpc_process(char *request_json)
     }
 
     cJSON *method = cJSON_GetObjectItem(root, "method");
+    cJSON *params = cJSON_GetObjectItem(root, "params");
+    cJSON *callerid = cJSON_GetObjectItem(root, "callerid");
+
+    rpc_func_t* func = rpc_get_caller_table();
+    while (func) {
+        if (0 == strcmp(func->method, method->valuestring)) {
+            break;
+        }
+        func = func->next;
+    }
+    if (func == NULL) {
+        printf("cannot get func\n");
+        return NULL;
+    }
+    rpc_task_t *task = (rpc_task_t *)rpc_malloc(sizeof(rpc_task_t));
+    task->method = method->valuestring;
+    task->callerid = callerid->valueint;
+
+    // char *response = func->handler(params, task);
+    // return response;
     if (strcmp(method->valuestring, "sayhello") == 0) {
-        printf("get method sayhello\n");
-        return sayhello_response;
+        // printf("get method sayhello\n");
+        // return sayhello_response;
+        return rpc_response_json_encode_sayhello(params, task);
     } else if (strcmp(method->valuestring, "add") == 0) {
-        printf("get method add\n");
-        return add_response;
+        // printf("get method add\n");
+        // return add_response;
+        return rpc_response_json_encode_add(params, task);
     } else if (strcmp(method->valuestring, "sub") == 0) {
-        printf("get method sub\n");
-        return sub_response;
+        // printf("get method sub\n");
+        // return sub_response;
+        return rpc_response_json_encode_sub(params, task);
     } else if (strcmp(method->valuestring, "mul") == 0) {
-        return mul_response;
+        // return mul_response;
+        return rpc_response_json_encode_mul(params, task);
     }
     printf("cannot get method\n");
     return no_response;
@@ -202,11 +194,30 @@ char* rpc_request_json_encode(int numargs, ...)
     cJSON_Delete(root);
     
     return json;
-} 
+}
+
+char* rpc_request_json_decode(char *request)
+{
+    
+}
 
 char* rpc_response_json_decode(char *response)
 {
+    cJSON *root = cJSON_Parse(response);
+    if (root == NULL) {
+        printf("decode response json failed\n");
+        return NULL;
+    }
+    cJSON *result = cJSON_GetObjectItem(root, "result");
+    if (result == NULL) {
+        printf("decode response json failed\n");
+        return NULL;
+    }
 
+    char *result_str = cJSON_Print(result);
+    cJSON_Delete(root);
+
+    return result_str;
 }        
 
 char *rpc_read_register_config(char *filename)
@@ -340,4 +351,72 @@ int rpc_load_register(char *filename)
     ret = rpc_decode_register_json(json);
     free(json);
     return ret;
+}
+
+
+char* rpc_client_session(char *request_json)
+{
+    const char *ip = "192.168.245.129";
+    unsigned short port = 9096;
+
+    int connfd = connect_tcp_server(ip, port);
+    
+    char *request = request_json;
+
+    char *header = rpc_header_encode(request);
+
+    int sent = send(connfd, header, RPC_HEADER_LENGTH, 0);
+
+    sent = send(connfd, request, strlen(request), 0);
+
+    rpc_free(header);
+
+    char recv_header[RPC_HEADER_LENGTH] = {0};
+    int ret = recv(connfd, recv_header, RPC_HEADER_LENGTH, 0);
+    if (ret < 0) {
+        printf("recv error\n");
+        return NULL;
+    } else if (ret == 0) {
+        printf("server close\n");
+        return NULL;
+    }
+
+    unsigned int crc32 = *(unsigned int *)recv_header;
+    unsigned short length = *(unsigned short *)(recv_header + 4);
+
+    char *payload = (char *)rpc_malloc((length + 1) * sizeof(char));
+    if (payload == NULL) {
+        printf("payload malloc failed\n");
+        return NULL;
+    }
+    memset(payload, 0, (length + 1) * sizeof(char));
+    ret = recv(connfd, payload, length, 0);
+    assert(ret == length);
+    if (crc32 != calc_crc32(payload, length)) {
+        printf("crc32 check failed\n");
+        rpc_free(payload);
+        return NULL;
+    }
+
+    //printf("response payload: %s\n", payload);
+    //rpc_free(payload);
+
+    close(connfd);
+    return payload;
+}
+
+int connect_tcp_server(const char *ip, unsigned short port)
+{
+    int connfd = socket(AF_INET, SOCK_STREAM, 0);
+    struct sockaddr_in server_addr;
+    server_addr.sin_family = AF_INET;
+    server_addr.sin_port = htons(port);
+    server_addr.sin_addr.s_addr = inet_addr(ip);
+
+    if (connect(connfd, (struct sockaddr *)&server_addr, sizeof(struct sockaddr_in))){
+        perror("connect");
+        return -1;
+    }
+
+    return connfd;
 }

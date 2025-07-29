@@ -293,6 +293,36 @@ rpc_client.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_client.dir/build.make CMakeFiles/rpc_client.dir/rpc_client.c.s
 .PHONY : rpc_client.c.s
 
+rpc_method.o: rpc_method.c.o
+.PHONY : rpc_method.o
+
+# target to build an object file
+rpc_method.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_server.dir/build.make CMakeFiles/rpc_server.dir/rpc_method.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_client.dir/build.make CMakeFiles/rpc_client.dir/rpc_method.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/register_json_test.dir/build.make CMakeFiles/register_json_test.dir/rpc_method.c.o
+.PHONY : rpc_method.c.o
+
+rpc_method.i: rpc_method.c.i
+.PHONY : rpc_method.i
+
+# target to preprocess a source file
+rpc_method.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_server.dir/build.make CMakeFiles/rpc_server.dir/rpc_method.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_client.dir/build.make CMakeFiles/rpc_client.dir/rpc_method.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/register_json_test.dir/build.make CMakeFiles/register_json_test.dir/rpc_method.c.i
+.PHONY : rpc_method.c.i
+
+rpc_method.s: rpc_method.c.s
+.PHONY : rpc_method.s
+
+# target to generate assembly for a file
+rpc_method.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_server.dir/build.make CMakeFiles/rpc_server.dir/rpc_method.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_client.dir/build.make CMakeFiles/rpc_client.dir/rpc_method.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/register_json_test.dir/build.make CMakeFiles/register_json_test.dir/rpc_method.c.s
+.PHONY : rpc_method.c.s
+
 rpc_server.o: rpc_server.c.o
 .PHONY : rpc_server.o
 
@@ -343,6 +373,9 @@ help:
 	@echo "... rpc_client.o"
 	@echo "... rpc_client.i"
 	@echo "... rpc_client.s"
+	@echo "... rpc_method.o"
+	@echo "... rpc_method.i"
+	@echo "... rpc_method.s"
 	@echo "... rpc_server.o"
 	@echo "... rpc_server.i"
 	@echo "... rpc_server.s"

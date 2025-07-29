@@ -1,8 +1,10 @@
-CMakeFiles/register_json_test.dir/register_json_test.c.o: \
- /home/z2w/shared_work/z2w_rpc/register_json_test.c \
- /usr/include/stdc-predef.h /home/z2w/shared_work/z2w_rpc/rpc.h \
+CMakeFiles/rpc_client.dir/rpc_method.c.o: \
+ /home/z2w/shared_work/z2w_rpc/rpc_method.c /usr/include/stdc-predef.h \
+ /home/z2w/shared_work/z2w_rpc/rpc_method.h \
  /home/z2w/shared_work/z2w_rpc/cJSON.h \
- /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h /usr/include/stdio.h \
+ /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
+ /home/z2w/shared_work/z2w_rpc/rpc.h \
+ /home/z2w/shared_work/z2w_rpc/rpc_client.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
@@ -49,4 +51,7 @@ CMakeFiles/register_json_test.dir/register_json_test.c.o: \
  /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
  /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
  /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h /usr/include/alloca.h \
- /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
+ /usr/include/x86_64-linux-gnu/bits/stdlib-float.h /usr/include/string.h \
+ /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
+ /usr/include/strings.h

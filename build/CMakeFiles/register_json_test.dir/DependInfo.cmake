@@ -12,6 +12,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/z2w/shared_work/z2w_rpc/crc32.c" "CMakeFiles/register_json_test.dir/crc32.c.o" "gcc" "CMakeFiles/register_json_test.dir/crc32.c.o.d"
   "/home/z2w/shared_work/z2w_rpc/register_json_test.c" "CMakeFiles/register_json_test.dir/register_json_test.c.o" "gcc" "CMakeFiles/register_json_test.dir/register_json_test.c.o.d"
   "/home/z2w/shared_work/z2w_rpc/rpc.c" "CMakeFiles/register_json_test.dir/rpc.c.o" "gcc" "CMakeFiles/register_json_test.dir/rpc.c.o.d"
+  "/home/z2w/shared_work/z2w_rpc/rpc_method.c" "CMakeFiles/register_json_test.dir/rpc_method.c.o" "gcc" "CMakeFiles/register_json_test.dir/rpc_method.c.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

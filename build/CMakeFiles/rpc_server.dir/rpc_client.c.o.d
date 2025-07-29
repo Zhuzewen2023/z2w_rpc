@@ -1,5 +1,5 @@
-CMakeFiles/rpc_server.dir/rpc_server.c.o: \
- /home/z2w/shared_work/z2w_rpc/rpc_server.c /usr/include/stdc-predef.h \
+CMakeFiles/rpc_server.dir/rpc_client.c.o: \
+ /home/z2w/shared_work/z2w_rpc/rpc_client.c /usr/include/stdc-predef.h \
  /home/z2w/shared_work/z2w_rpc/NtyCo/core/nty_coroutine.h \
  /usr/include/dlfcn.h /usr/include/features.h \
  /usr/include/features-time64.h \
@@ -127,5 +127,7 @@ CMakeFiles/rpc_server.dir/rpc_server.c.o: \
  /home/z2w/shared_work/z2w_rpc/NtyCo/core/nty_tree.h \
  /home/z2w/shared_work/z2w_rpc/crc32.h \
  /home/z2w/shared_work/z2w_rpc/rpc.h \
- /home/z2w/shared_work/z2w_rpc/cJSON.h /usr/include/arpa/inet.h \
+ /home/z2w/shared_work/z2w_rpc/cJSON.h \
+ /home/z2w/shared_work/z2w_rpc/rpc_method.h \
+ /home/z2w/shared_work/z2w_rpc/rpc_client.h /usr/include/arpa/inet.h \
  /usr/include/netinet/in.h /usr/include/x86_64-linux-gnu/bits/in.h

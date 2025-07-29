@@ -86,17 +86,17 @@ void rpc_listen(void *arg) {
 	while (1) {
 		socklen_t len = sizeof(struct sockaddr_in);
 		int cli_fd = accept(fd, (struct sockaddr*)&remote, &len);
-		if (cli_fd % 1000 == 999) {
+		// if (cli_fd % 1000 == 999) {
 
-			struct timeval tv_cur;
-			memcpy(&tv_cur, &tv_begin, sizeof(struct timeval));
+		// 	struct timeval tv_cur;
+		// 	memcpy(&tv_cur, &tv_begin, sizeof(struct timeval));
 			
-			gettimeofday(&tv_begin, NULL);
-			int time_used = TIME_SUB_MS(tv_begin, tv_cur);
+		// 	gettimeofday(&tv_begin, NULL);
+		// 	int time_used = TIME_SUB_MS(tv_begin, tv_cur);
 			
-			printf("client fd : %d, time_used: %d\n", cli_fd, time_used);
-		}
-		printf("new client comming\n");
+		// 	printf("client fd : %d, time_used: %d\n", cli_fd, time_used);
+		// }
+		// printf("new client comming\n");
 
 		nty_coroutine *read_co;
 		int *arg = rpc_malloc(sizeof(int));
@@ -109,7 +109,15 @@ void rpc_listen(void *arg) {
 
 
 
-int main(int argc, char *argv[]) {
+int main(int argc, char *argv[]) 
+{
+	if (argc != 2) {
+		printf("Usage: ./%s <filename>\n", argv[0]);
+		return -1;
+    }
+
+    rpc_load_register(argv[1]);
+
 	nty_coroutine *co = NULL;
 
 	int i = 0;

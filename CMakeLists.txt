@@ -16,6 +16,7 @@ set(SERVER_SOURCES
     crc32.c
     rpc.c
     cJSON.c
+    rpc_method.c
 )
 
 set(CLIENT_SOURCES
@@ -23,6 +24,7 @@ set(CLIENT_SOURCES
     crc32.c
     rpc.c
     cJSON.c
+    rpc_method.c
 )
 
 set(REGISTER_JSON_TEST_SOURCES
@@ -30,6 +32,7 @@ set(REGISTER_JSON_TEST_SOURCES
     rpc.c
     cJSON.c
     crc32.c
+    rpc_method.c
 )
 
 add_library(ntyco STATIC IMPORTED)

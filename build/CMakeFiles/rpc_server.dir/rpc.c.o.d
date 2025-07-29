@@ -1,8 +1,10 @@
 CMakeFiles/rpc_server.dir/rpc.c.o: /home/z2w/shared_work/z2w_rpc/rpc.c \
  /usr/include/stdc-predef.h /home/z2w/shared_work/z2w_rpc/rpc.h \
+ /home/z2w/shared_work/z2w_rpc/cJSON.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
  /home/z2w/shared_work/z2w_rpc/crc32.h \
- /home/z2w/shared_work/z2w_rpc/cJSON.h /usr/include/string.h \
+ /home/z2w/shared_work/z2w_rpc/rpc_method.h \
+ /home/z2w/shared_work/z2w_rpc/rpc_client.h /usr/include/string.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
@@ -74,4 +76,20 @@ CMakeFiles/rpc_server.dir/rpc.c.o: /home/z2w/shared_work/z2w_rpc/rpc.c \
  /usr/include/x86_64-linux-gnu/bits/elfclass.h \
  /usr/include/x86_64-linux-gnu/bits/link.h \
  /usr/include/x86_64-linux-gnu/bits/link_lavcurrent.h \
- /usr/include/assert.h
+ /usr/include/assert.h /usr/include/arpa/inet.h /usr/include/netinet/in.h \
+ /usr/include/x86_64-linux-gnu/sys/socket.h \
+ /usr/include/x86_64-linux-gnu/bits/socket.h \
+ /usr/include/x86_64-linux-gnu/bits/socket_type.h \
+ /usr/include/x86_64-linux-gnu/bits/sockaddr.h \
+ /usr/include/x86_64-linux-gnu/asm/socket.h \
+ /usr/include/asm-generic/socket.h /usr/include/linux/posix_types.h \
+ /usr/include/linux/stddef.h \
+ /usr/include/x86_64-linux-gnu/asm/posix_types.h \
+ /usr/include/x86_64-linux-gnu/asm/posix_types_64.h \
+ /usr/include/asm-generic/posix_types.h \
+ /usr/include/x86_64-linux-gnu/asm/bitsperlong.h \
+ /usr/include/asm-generic/bitsperlong.h \
+ /usr/include/x86_64-linux-gnu/asm/sockios.h \
+ /usr/include/asm-generic/sockios.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_osockaddr.h \
+ /usr/include/x86_64-linux-gnu/bits/in.h

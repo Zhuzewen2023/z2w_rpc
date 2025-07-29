@@ -17,14 +17,20 @@
         {
             "method" : "sub",
             "params" : ["a", "b"],
-            "types" : ["float", "float"],
-            "rettype" : "float"
+            "types" : ["double", "double"],
+            "rettype" : "double"
         },
         {
             "method" : "mul",
             "params" : ["a", "b"],
             "types" : ["double", "double"],
             "rettype" : "double"
+        },
+        {
+            "method" : "sum",
+            "params" : ["a", "b", "c"],
+            "types" : ["int", "int", "int"],
+            "rettype" : "int"
         }
     ]
 }
