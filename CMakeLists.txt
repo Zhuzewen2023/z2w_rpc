@@ -43,12 +43,12 @@ add_executable(rpc_server ${SERVER_SOURCES})
 add_executable(rpc_client ${CLIENT_SOURCES})
 add_executable(register_json_test ${REGISTER_JSON_TEST_SOURCES})
 
-target_link_libraries(rpc_server ntyco pthread dl)
-target_link_options(rpc_server PRIVATE "-rdynamic")
-target_link_libraries(rpc_client ntyco pthread dl)
-target_link_options(rpc_client PRIVATE "-rdynamic")
-target_link_libraries(register_json_test ntyco pthread dl)
-target_link_options(register_json_test PRIVATE "-rdynamic")
+target_link_libraries(rpc_server ntyco pthread dl "-rdynamic")
+# target_link_options(rpc_server PRIVATE "-rdynamic")
+target_link_libraries(rpc_client ntyco pthread dl "-rdynamic")
+# target_link_options(rpc_client PRIVATE "-rdynamic")
+target_link_libraries(register_json_test ntyco pthread dl "-rdynamic")
+# target_link_options(register_json_test PRIVATE "-rdynamic")
 
 
 

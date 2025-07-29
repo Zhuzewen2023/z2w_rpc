@@ -12,6 +12,7 @@
 #include <fcntl.h>
 #include <link.h>
 #include <dlfcn.h>
+#include <assert.h>
 
 char *sayhello_request = "{ \n \
     \"method\" : \"sayhello\",\n \
@@ -244,8 +245,32 @@ int rpc_decode_register_json(char *json)
         cJSON *method = cJSON_GetObjectItem(iter, "method");
         func->method = method->valuestring;
 
-        //todo
+        cJSON *rettype = cJSON_GetObjectItem(iter, "rettype");
+        func->rettype = rettype->valuestring;
+
+        //printf("method ---> %s, rettype ---> %s\n", func->method, func->rettype);
+
+        cJSON *params = cJSON_GetObjectItem(iter, "params");
+        int params_size = cJSON_GetArraySize(params);
+        cJSON *types = cJSON_GetObjectItem(iter, "types");
+        int types_size = cJSON_GetArraySize(types);
+
+        assert(params_size == types_size);
+
+        int j = 0;
+        for (j = 0; j < params_size; ++j) {
+            cJSON *param = cJSON_GetArrayItem(params, j);
+            cJSON *type = cJSON_GetArrayItem(types, j);
+            func->params[j] = param->valuestring;
+            func->types[j] = type->valuestring;
+            //printf("param ---> %s, type ---> %s\n", func->params[j], func->types[j]);
+            
+        }
+        func->count = params_size; // count is the number of params
+        func->next = rpc_caller_table;
+        rpc_caller_table = func;
     }
+    return 0;
 
 out:
     cJSON_Delete(root);

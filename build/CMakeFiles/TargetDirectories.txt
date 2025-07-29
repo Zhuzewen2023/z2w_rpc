@@ -1,5 +1,5 @@
-/home/z2w/shared_work/z2w_rpc/build/CMakeFiles/rpc_server.dir
-/home/z2w/shared_work/z2w_rpc/build/CMakeFiles/rpc_client.dir
-/home/z2w/shared_work/z2w_rpc/build/CMakeFiles/register_json_test.dir
-/home/z2w/shared_work/z2w_rpc/build/CMakeFiles/edit_cache.dir
-/home/z2w/shared_work/z2w_rpc/build/CMakeFiles/rebuild_cache.dir
+/home/zhuzewen/share/z2w_rpc/build/CMakeFiles/edit_cache.dir
+/home/zhuzewen/share/z2w_rpc/build/CMakeFiles/register_json_test.dir
+/home/zhuzewen/share/z2w_rpc/build/CMakeFiles/rebuild_cache.dir
+/home/zhuzewen/share/z2w_rpc/build/CMakeFiles/rpc_server.dir
+/home/zhuzewen/share/z2w_rpc/build/CMakeFiles/rpc_client.dir

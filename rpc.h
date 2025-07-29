@@ -18,12 +18,16 @@ extern char *add_response;
 extern char *sub_response;
 extern char *mul_response;
 extern char *no_response;
+extern char *rpc_server_ip;
+extern short rpc_server_port;
+extern struct rpc_func *rpc_caller_table;
 
 typedef struct rpc_func
 {
     char *method;
     char *params[RPC_PARAMS_MAX_COUNT];
     char *types[RPC_PARAMS_MAX_COUNT];
+    int count;  // count is the number of params
     char *rettype;
     struct rpc_func *next;
 }rpc_func_t;
