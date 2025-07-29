@@ -106,26 +106,26 @@ char *rpc_process(char *request_json)
     task->method = method->valuestring;
     task->callerid = callerid->valueint;
 
-    // char *response = func->handler(params, task);
-    // return response;
-    if (strcmp(method->valuestring, "sayhello") == 0) {
-        // printf("get method sayhello\n");
-        // return sayhello_response;
-        return rpc_response_json_encode_sayhello(params, task);
-    } else if (strcmp(method->valuestring, "add") == 0) {
-        // printf("get method add\n");
-        // return add_response;
-        return rpc_response_json_encode_add(params, task);
-    } else if (strcmp(method->valuestring, "sub") == 0) {
-        // printf("get method sub\n");
-        // return sub_response;
-        return rpc_response_json_encode_sub(params, task);
-    } else if (strcmp(method->valuestring, "mul") == 0) {
-        // return mul_response;
-        return rpc_response_json_encode_mul(params, task);
-    }
-    printf("cannot get method\n");
-    return no_response;
+    char *response = func->handler(params, task);
+    return response;
+    // if (strcmp(method->valuestring, "sayhello") == 0) {
+    //     // printf("get method sayhello\n");
+    //     // return sayhello_response;
+    //     return rpc_response_json_encode_sayhello(params, task);
+    // } else if (strcmp(method->valuestring, "add") == 0) {
+    //     // printf("get method add\n");
+    //     // return add_response;
+    //     return rpc_response_json_encode_add(params, task);
+    // } else if (strcmp(method->valuestring, "sub") == 0) {
+    //     // printf("get method sub\n");
+    //     // return sub_response;
+    //     return rpc_response_json_encode_sub(params, task);
+    // } else if (strcmp(method->valuestring, "mul") == 0) {
+    //     // return mul_response;
+    //     return rpc_response_json_encode_mul(params, task);
+    // }
+    // printf("cannot get method\n");
+    // return no_response;
 }
 
 const char* rpc_caller_name()
@@ -254,6 +254,28 @@ rpc_func_t* rpc_get_caller_table()
     return rpc_caller_table;
 }
 
+#define RPC_METHOD_LIBSO "librpc_method.so"
+void* dlh = NULL; //动态库句柄
+
+void* rpc_method_find(char *funcname)
+{
+    if (dlh == NULL) {
+        dlh = dlopen(RPC_METHOD_LIBSO, RTLD_LAZY); //RTLD_LAZY延迟绑定，在函数第一次被调用时才解析符号
+        if (dlh == NULL) {
+            printf("dlopen failed: %s\n", dlerror());
+            return NULL;
+        }
+    }
+
+    void *method = dlsym(dlh, funcname);
+    if (method == NULL) {
+        printf("dlsym failed: %s\n", dlerror());
+        return NULL;
+    }
+
+    return method;
+}
+
 int rpc_decode_register_json(char *json)
 {
     cJSON *root = cJSON_Parse(json);
@@ -321,9 +343,11 @@ int rpc_decode_register_json(char *json)
             cJSON *type = cJSON_GetArrayItem(types, j);
             func->params[j] = param->valuestring;
             func->types[j] = type->valuestring;
-            //printf("param ---> %s, type ---> %s\n", func->params[j], func->types[j]);
-            
+            //printf("param ---> %s, type ---> %s\n", func->params[j], func->types[j]);  
         }
+        char method_name[64] = {0};
+        snprintf(method_name, sizeof(method_name), "rpc_response_json_encode_%s", func->method);
+        func->handler = rpc_method_find(method_name);
         func->count = params_size; // count is the number of params
         func->next = rpc_caller_table;
         rpc_caller_table = func;

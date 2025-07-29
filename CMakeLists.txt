@@ -36,6 +36,9 @@ set(REGISTER_JSON_TEST_SOURCES
 )
 
 add_library(ntyco STATIC IMPORTED)
+add_library(rpc_method SHARED rpc_client.c)
+
+target_include_directories(rpc_method PUBLIC ${CMAKE_SOURCE_DIR})
 
 set_target_properties(ntyco PROPERTIES
     IMPORTED_LOCATION ${CMAKE_SOURCE_DIR}/libntyco.a

@@ -1,3 +1,4 @@
+/home/z2w/shared_work/z2w_rpc/build/CMakeFiles/rpc_method.dir
 /home/z2w/shared_work/z2w_rpc/build/CMakeFiles/rpc_server.dir
 /home/z2w/shared_work/z2w_rpc/build/CMakeFiles/rpc_client.dir
 /home/z2w/shared_work/z2w_rpc/build/CMakeFiles/register_json_test.dir

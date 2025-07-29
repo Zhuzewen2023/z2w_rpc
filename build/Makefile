@@ -117,6 +117,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named rpc_method
+
+# Build rule for target.
+rpc_method: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 rpc_method
+.PHONY : rpc_method
+
+# fast build rule for target.
+rpc_method/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_method.dir/build.make CMakeFiles/rpc_method.dir/build
+.PHONY : rpc_method/fast
+
+#=============================================================================
 # Target rules for targets named rpc_server
 
 # Build rule for target.
@@ -274,6 +287,7 @@ rpc_client.o: rpc_client.c.o
 
 # target to build an object file
 rpc_client.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_method.dir/build.make CMakeFiles/rpc_method.dir/rpc_client.c.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_client.dir/build.make CMakeFiles/rpc_client.dir/rpc_client.c.o
 .PHONY : rpc_client.c.o
 
@@ -282,6 +296,7 @@ rpc_client.i: rpc_client.c.i
 
 # target to preprocess a source file
 rpc_client.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_method.dir/build.make CMakeFiles/rpc_method.dir/rpc_client.c.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_client.dir/build.make CMakeFiles/rpc_client.dir/rpc_client.c.i
 .PHONY : rpc_client.c.i
 
@@ -290,6 +305,7 @@ rpc_client.s: rpc_client.c.s
 
 # target to generate assembly for a file
 rpc_client.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_method.dir/build.make CMakeFiles/rpc_method.dir/rpc_client.c.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_client.dir/build.make CMakeFiles/rpc_client.dir/rpc_client.c.s
 .PHONY : rpc_client.c.s
 
@@ -357,6 +373,7 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... register_json_test"
 	@echo "... rpc_client"
+	@echo "... rpc_method"
 	@echo "... rpc_server"
 	@echo "... cJSON.o"
 	@echo "... cJSON.i"
