@@ -5,7 +5,7 @@
         {
             "method" : "sayhello",
             "params" : ["msg", "length"],
-            "types" : ["char*", "char*"],
+            "types" : ["char*", "int"],
             "rettype": "char*"
         },
         {

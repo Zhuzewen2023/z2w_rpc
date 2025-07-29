@@ -118,6 +118,15 @@ double mul(double a, double b)
 
 int main(int argc, char **argv)
 {
+    // if (argc != 2) {
+    //     printf("Usage: ./%s <filename>\n", argv[0]);
+    //     return -1;
+    // }
+
+    char *filename = "../../register.json";
+    char *json = rpc_read_register_config(filename);
+    //printf("register json: %s\n", json);
+    rpc_decode_register_json(json);
     sayhello("z2w rpc nb", 10);
     add(10,7);
     sub(20,3);

@@ -13,6 +13,7 @@
 #include <link.h>
 #include <dlfcn.h>
 #include <assert.h>
+#include <stdarg.h>
 
 char *sayhello_request = "{ \n \
     \"method\" : \"sayhello\",\n \
@@ -153,10 +154,12 @@ char* rpc_request_json_encode(int numargs, ...)
         printf("func_name == NULL\n");
         return NULL;
     }
+    // printf("func_name = %s\n", func_name);
     
-    struct rpc_func_t* func = rpc_get_caller_table();
+    rpc_func_t* func = rpc_get_caller_table();
     while (func) {
-        if (strcmp(func->name, func_name) == 0) {
+        if (strcmp(func->method, func_name) == 0) {
+            //printf("found func_name = %s\n", func->method);
             break;
         }
         func = func->next;
@@ -168,20 +171,22 @@ char* rpc_request_json_encode(int numargs, ...)
     }
 
     cJSON *root = cJSON_CreateObject();
-    cJSON_AddStringToObject(root, "method", func->name);
+    cJSON_AddStringToObject(root, "method", func->method);
     cJSON *params = cJSON_CreateObject();
 
     va_list args;
     va_start(args, numargs);
     int i = 0;
+    // printf("func->count = %d\n", func->count);
     for (i = 0; i < func->count; ++i) {
-        if (0 == strcmp(func->param_type[i], "int")) {
+        //printf("func->types[%d] = %s\n", i, func->types[i]);
+        if (0 == strcmp(func->types[i], "int")) {
             cJSON_AddNumberToObject(params, func->params[i], va_arg(args, int));
-        } else if (0 == strcmp(func->param_type[i], "float")) {
+        } else if (0 == strcmp(func->types[i], "float")) {
             cJSON_AddNumberToObject(params, func->params[i], va_arg(args, double));
-        } else if (0 == strcmp(func->param_type[i], "double")) {
+        } else if (0 == strcmp(func->types[i], "double")) {
             cJSON_AddNumberToObject(params, func->params[i], va_arg(args, double));
-        } else if (0 == strcmp(func->param_type[i], "char*")) {
+        } else if (0 == strcmp(func->types[i], "char*")) {
             cJSON_AddStringToObject(params, func->params[i], va_arg(args, char *));
         } else {
             assert(0);
@@ -189,11 +194,11 @@ char* rpc_request_json_encode(int numargs, ...)
     }
     va_end(args);
 
-    cJSON_AddStringToObject(root, "params", params);
+    cJSON_AddItemToObject(root, "params", params);
     cJSON_AddNumberToObject(root, "callerid", rpc_get_caller_id());
 
     char *json = cJSON_Print(root);
-    cJSON_Delete(params);
+    // cJSON_Delete(params);
     cJSON_Delete(root);
     
     return json;
@@ -231,7 +236,7 @@ char *rpc_read_register_config(char *filename)
 char *rpc_server_ip = NULL;
 short rpc_server_port;
 
-static struct rpc_func *rpc_caller_table = NULL;
+static rpc_func_t *rpc_caller_table = NULL;
 
 rpc_func_t* rpc_get_caller_table()
 {
