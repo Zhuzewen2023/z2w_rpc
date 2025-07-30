@@ -3,6 +3,7 @@
 #include "rpc.h"
 #include "rpc_method.h"
 #include "rpc_client.h"
+#include "rpc_generator.h"
 
 #include <arpa/inet.h>
 #include <stdio.h>
@@ -30,6 +31,7 @@ int main(int argc, char **argv)
     }
 
     rpc_load_register(argv[1]);
+    rpc_generate_method_code(argv[1]);
     printf("%s\n", sayhello("z2w rpc nb", 10));
     printf("%d\n", add(100,99));
     printf("%f\n", sub(20,3));

@@ -12,6 +12,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/root/z2w_rpc/crc32.c" "CMakeFiles/register_json_test.dir/crc32.c.o" "gcc" "CMakeFiles/register_json_test.dir/crc32.c.o.d"
   "/root/z2w_rpc/register_json_test.c" "CMakeFiles/register_json_test.dir/register_json_test.c.o" "gcc" "CMakeFiles/register_json_test.dir/register_json_test.c.o.d"
   "/root/z2w_rpc/rpc.c" "CMakeFiles/register_json_test.dir/rpc.c.o" "gcc" "CMakeFiles/register_json_test.dir/rpc.c.o.d"
+  "/root/z2w_rpc/rpc_generator.c" "CMakeFiles/register_json_test.dir/rpc_generator.c.o" "gcc" "CMakeFiles/register_json_test.dir/rpc_generator.c.o.d"
   "/root/z2w_rpc/rpc_method.c" "CMakeFiles/register_json_test.dir/rpc_method.c.o" "gcc" "CMakeFiles/register_json_test.dir/rpc_method.c.o.d"
   )
 

@@ -318,6 +318,36 @@ rpc_client.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_client.dir/build.make CMakeFiles/rpc_client.dir/rpc_client.c.s
 .PHONY : rpc_client.c.s
 
+rpc_generator.o: rpc_generator.c.o
+.PHONY : rpc_generator.o
+
+# target to build an object file
+rpc_generator.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_server.dir/build.make CMakeFiles/rpc_server.dir/rpc_generator.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_client.dir/build.make CMakeFiles/rpc_client.dir/rpc_generator.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/register_json_test.dir/build.make CMakeFiles/register_json_test.dir/rpc_generator.c.o
+.PHONY : rpc_generator.c.o
+
+rpc_generator.i: rpc_generator.c.i
+.PHONY : rpc_generator.i
+
+# target to preprocess a source file
+rpc_generator.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_server.dir/build.make CMakeFiles/rpc_server.dir/rpc_generator.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_client.dir/build.make CMakeFiles/rpc_client.dir/rpc_generator.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/register_json_test.dir/build.make CMakeFiles/register_json_test.dir/rpc_generator.c.i
+.PHONY : rpc_generator.c.i
+
+rpc_generator.s: rpc_generator.c.s
+.PHONY : rpc_generator.s
+
+# target to generate assembly for a file
+rpc_generator.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_server.dir/build.make CMakeFiles/rpc_server.dir/rpc_generator.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_client.dir/build.make CMakeFiles/rpc_client.dir/rpc_generator.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/register_json_test.dir/build.make CMakeFiles/register_json_test.dir/rpc_generator.c.s
+.PHONY : rpc_generator.c.s
+
 rpc_method.o: rpc_method.c.o
 .PHONY : rpc_method.o
 
@@ -402,6 +432,9 @@ help:
 	@echo "... rpc_client.o"
 	@echo "... rpc_client.i"
 	@echo "... rpc_client.s"
+	@echo "... rpc_generator.o"
+	@echo "... rpc_generator.i"
+	@echo "... rpc_generator.s"
 	@echo "... rpc_method.o"
 	@echo "... rpc_method.i"
 	@echo "... rpc_method.s"

@@ -348,6 +348,7 @@ CMakeFiles/rpc_method.dir/rpc_client.c.o: ../rpc_client.c \
   ../cJSON.h \
   ../rpc_method.h \
   ../rpc_client.h \
+  ../rpc_generator.h \
   /usr/include/arpa/inet.h \
   /usr/include/netinet/in.h \
   /usr/include/x86_64-linux-gnu/bits/in.h
@@ -417,6 +418,8 @@ CMakeFiles/rpc_method.dir/rpc_method.c.o: ../rpc_method.c \
 
 
 ../rpc_method.c:
+
+../rpc_generator.h:
 
 /usr/include/asm-generic/errno.h:
 

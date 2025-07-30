@@ -17,6 +17,7 @@ set(SERVER_SOURCES
     rpc.c
     cJSON.c
     rpc_method.c
+    rpc_generator.c
 )
 
 set(CLIENT_SOURCES
@@ -25,6 +26,7 @@ set(CLIENT_SOURCES
     rpc.c
     cJSON.c
     rpc_method.c
+    rpc_generator.c
 )
 
 set(REGISTER_JSON_TEST_SOURCES
@@ -33,6 +35,7 @@ set(REGISTER_JSON_TEST_SOURCES
     cJSON.c
     crc32.c
     rpc_method.c
+    rpc_generator.c
 )
 
 set(LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR})

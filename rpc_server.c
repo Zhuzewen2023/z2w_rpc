@@ -1,6 +1,7 @@
 #include "nty_coroutine.h"
 #include "crc32.h"
 #include "rpc.h"
+#include "rpc_generator.h"
 
 #include <arpa/inet.h>
 
@@ -105,6 +106,7 @@ int main(int argc, char *argv[])
     }
 
     rpc_load_register(argv[1]);
+	rpc_generate_method_code(argv[1]);
 
 	nty_coroutine *co = NULL;
 

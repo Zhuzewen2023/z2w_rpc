@@ -31,6 +31,12 @@
             "params" : ["a", "b", "c"],
             "types" : ["int", "int", "int"],
             "rettype" : "int"
+        },
+        {
+            "method" : "echo",
+            "params" : ["msg", "length"],
+            "types" : ["char*", "int"],
+            "rettype" : "char*"
         }
     ]
 }

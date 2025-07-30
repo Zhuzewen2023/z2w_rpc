@@ -123,5 +123,5 @@ CMakeFiles/rpc_method.dir/rpc_client.c.o: /root/z2w_rpc/rpc_client.c \
  /root/z2w_rpc/NtyCo/core/nty_queue.h /root/z2w_rpc/NtyCo/core/nty_tree.h \
  /root/z2w_rpc/crc32.h /root/z2w_rpc/rpc.h /root/z2w_rpc/cJSON.h \
  /root/z2w_rpc/rpc_method.h /root/z2w_rpc/rpc_client.h \
- /usr/include/arpa/inet.h /usr/include/netinet/in.h \
- /usr/include/x86_64-linux-gnu/bits/in.h
+ /root/z2w_rpc/rpc_generator.h /usr/include/arpa/inet.h \
+ /usr/include/netinet/in.h /usr/include/x86_64-linux-gnu/bits/in.h
