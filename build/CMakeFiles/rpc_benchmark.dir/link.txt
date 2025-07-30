@@ -1,0 +1,1 @@
+/usr/bin/cc CMakeFiles/rpc_benchmark.dir/rpc_benchmark.c.o CMakeFiles/rpc_benchmark.dir/crc32.c.o CMakeFiles/rpc_benchmark.dir/rpc.c.o CMakeFiles/rpc_benchmark.dir/cJSON.c.o CMakeFiles/rpc_benchmark.dir/rpc_method.c.o -o bin/rpc_benchmark  -Wl,-rpath,/root/z2w_rpc/build ../libntyco.a -lpthread -ldl librpc_method.so -rdynamic 

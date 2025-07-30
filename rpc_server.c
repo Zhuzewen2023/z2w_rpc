@@ -25,7 +25,7 @@ void rpc_handle(void *arg) {
 		if (ret < 0) {
 			break;
 		} else if (ret == 0) {
-			printf("client close\n");
+			//printf("client close\n");
 			break;
 		}
 
@@ -40,7 +40,7 @@ void rpc_handle(void *arg) {
 		ret = recv(fd, payload, length, 0);
 		assert(ret == length);
 
-		printf("request payload: %s\n", payload);
+		//printf("request payload: %s\n", payload);
 		if (crc32 != calc_crc32(payload, length)) {
 			printf("crc32 check failed\n");
 			rpc_free(payload);

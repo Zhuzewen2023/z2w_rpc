@@ -47,4 +47,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/rpc_server.dir/DependInfo.cmake"
   "CMakeFiles/rpc_client.dir/DependInfo.cmake"
   "CMakeFiles/register_json_test.dir/DependInfo.cmake"
+  "CMakeFiles/rpc_benchmark.dir/DependInfo.cmake"
   )

@@ -2,5 +2,6 @@
 /root/z2w_rpc/build/CMakeFiles/rpc_server.dir
 /root/z2w_rpc/build/CMakeFiles/rpc_client.dir
 /root/z2w_rpc/build/CMakeFiles/register_json_test.dir
+/root/z2w_rpc/build/CMakeFiles/rpc_benchmark.dir
 /root/z2w_rpc/build/CMakeFiles/edit_cache.dir
 /root/z2w_rpc/build/CMakeFiles/rebuild_cache.dir

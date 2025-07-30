@@ -46,6 +46,14 @@ set(REGISTER_JSON_TEST_SOURCES
     rpc_method.c
 )
 
+set(BENCHMARK_SOURCES
+    rpc_benchmark.c
+    crc32.c
+    rpc.c
+    cJSON.c
+    rpc_method.c
+)
+
 set(LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR})
 
 add_library(ntyco STATIC IMPORTED)
@@ -61,6 +69,7 @@ set_target_properties(ntyco PROPERTIES
 add_executable(rpc_server ${SERVER_SOURCES})
 add_executable(rpc_client ${CLIENT_SOURCES})
 add_executable(register_json_test ${REGISTER_JSON_TEST_SOURCES})
+add_executable(rpc_benchmark ${BENCHMARK_SOURCES})
 
 #add_dependencies(rpc_server generate_rpc_files)
 #add_dependencies(rpc_client generate_rpc_files)
@@ -72,6 +81,7 @@ target_link_libraries(rpc_client ntyco pthread dl rpc_method "-rdynamic")
 # target_link_options(rpc_client PRIVATE "-rdynamic")
 target_link_libraries(register_json_test ntyco pthread dl rpc_method "-rdynamic")
 # target_link_options(register_json_test PRIVATE "-rdynamic")
+target_link_libraries(rpc_benchmark ntyco pthread dl rpc_method "-rdynamic")
 
 
 

@@ -168,6 +168,19 @@ register_json_test/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/register_json_test.dir/build.make CMakeFiles/register_json_test.dir/build
 .PHONY : register_json_test/fast
 
+#=============================================================================
+# Target rules for targets named rpc_benchmark
+
+# Build rule for target.
+rpc_benchmark: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 rpc_benchmark
+.PHONY : rpc_benchmark
+
+# fast build rule for target.
+rpc_benchmark/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_benchmark.dir/build.make CMakeFiles/rpc_benchmark.dir/build
+.PHONY : rpc_benchmark/fast
+
 cJSON.o: cJSON.c.o
 .PHONY : cJSON.o
 
@@ -177,6 +190,7 @@ cJSON.c.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_server.dir/build.make CMakeFiles/rpc_server.dir/cJSON.c.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_client.dir/build.make CMakeFiles/rpc_client.dir/cJSON.c.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/register_json_test.dir/build.make CMakeFiles/register_json_test.dir/cJSON.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_benchmark.dir/build.make CMakeFiles/rpc_benchmark.dir/cJSON.c.o
 .PHONY : cJSON.c.o
 
 cJSON.i: cJSON.c.i
@@ -188,6 +202,7 @@ cJSON.c.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_server.dir/build.make CMakeFiles/rpc_server.dir/cJSON.c.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_client.dir/build.make CMakeFiles/rpc_client.dir/cJSON.c.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/register_json_test.dir/build.make CMakeFiles/register_json_test.dir/cJSON.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_benchmark.dir/build.make CMakeFiles/rpc_benchmark.dir/cJSON.c.i
 .PHONY : cJSON.c.i
 
 cJSON.s: cJSON.c.s
@@ -199,6 +214,7 @@ cJSON.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_server.dir/build.make CMakeFiles/rpc_server.dir/cJSON.c.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_client.dir/build.make CMakeFiles/rpc_client.dir/cJSON.c.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/register_json_test.dir/build.make CMakeFiles/register_json_test.dir/cJSON.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_benchmark.dir/build.make CMakeFiles/rpc_benchmark.dir/cJSON.c.s
 .PHONY : cJSON.c.s
 
 crc32.o: crc32.c.o
@@ -210,6 +226,7 @@ crc32.c.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_server.dir/build.make CMakeFiles/rpc_server.dir/crc32.c.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_client.dir/build.make CMakeFiles/rpc_client.dir/crc32.c.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/register_json_test.dir/build.make CMakeFiles/register_json_test.dir/crc32.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_benchmark.dir/build.make CMakeFiles/rpc_benchmark.dir/crc32.c.o
 .PHONY : crc32.c.o
 
 crc32.i: crc32.c.i
@@ -221,6 +238,7 @@ crc32.c.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_server.dir/build.make CMakeFiles/rpc_server.dir/crc32.c.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_client.dir/build.make CMakeFiles/rpc_client.dir/crc32.c.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/register_json_test.dir/build.make CMakeFiles/register_json_test.dir/crc32.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_benchmark.dir/build.make CMakeFiles/rpc_benchmark.dir/crc32.c.i
 .PHONY : crc32.c.i
 
 crc32.s: crc32.c.s
@@ -232,6 +250,7 @@ crc32.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_server.dir/build.make CMakeFiles/rpc_server.dir/crc32.c.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_client.dir/build.make CMakeFiles/rpc_client.dir/crc32.c.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/register_json_test.dir/build.make CMakeFiles/register_json_test.dir/crc32.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_benchmark.dir/build.make CMakeFiles/rpc_benchmark.dir/crc32.c.s
 .PHONY : crc32.c.s
 
 register_json_test.o: register_json_test.c.o
@@ -267,6 +286,7 @@ rpc.c.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_server.dir/build.make CMakeFiles/rpc_server.dir/rpc.c.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_client.dir/build.make CMakeFiles/rpc_client.dir/rpc.c.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/register_json_test.dir/build.make CMakeFiles/register_json_test.dir/rpc.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_benchmark.dir/build.make CMakeFiles/rpc_benchmark.dir/rpc.c.o
 .PHONY : rpc.c.o
 
 rpc.i: rpc.c.i
@@ -278,6 +298,7 @@ rpc.c.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_server.dir/build.make CMakeFiles/rpc_server.dir/rpc.c.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_client.dir/build.make CMakeFiles/rpc_client.dir/rpc.c.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/register_json_test.dir/build.make CMakeFiles/register_json_test.dir/rpc.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_benchmark.dir/build.make CMakeFiles/rpc_benchmark.dir/rpc.c.i
 .PHONY : rpc.c.i
 
 rpc.s: rpc.c.s
@@ -289,7 +310,32 @@ rpc.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_server.dir/build.make CMakeFiles/rpc_server.dir/rpc.c.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_client.dir/build.make CMakeFiles/rpc_client.dir/rpc.c.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/register_json_test.dir/build.make CMakeFiles/register_json_test.dir/rpc.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_benchmark.dir/build.make CMakeFiles/rpc_benchmark.dir/rpc.c.s
 .PHONY : rpc.c.s
+
+rpc_benchmark.o: rpc_benchmark.c.o
+.PHONY : rpc_benchmark.o
+
+# target to build an object file
+rpc_benchmark.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_benchmark.dir/build.make CMakeFiles/rpc_benchmark.dir/rpc_benchmark.c.o
+.PHONY : rpc_benchmark.c.o
+
+rpc_benchmark.i: rpc_benchmark.c.i
+.PHONY : rpc_benchmark.i
+
+# target to preprocess a source file
+rpc_benchmark.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_benchmark.dir/build.make CMakeFiles/rpc_benchmark.dir/rpc_benchmark.c.i
+.PHONY : rpc_benchmark.c.i
+
+rpc_benchmark.s: rpc_benchmark.c.s
+.PHONY : rpc_benchmark.s
+
+# target to generate assembly for a file
+rpc_benchmark.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_benchmark.dir/build.make CMakeFiles/rpc_benchmark.dir/rpc_benchmark.c.s
+.PHONY : rpc_benchmark.c.s
 
 rpc_client.o: rpc_client.c.o
 .PHONY : rpc_client.o
@@ -327,6 +373,7 @@ rpc_method.c.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_server.dir/build.make CMakeFiles/rpc_server.dir/rpc_method.c.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_client.dir/build.make CMakeFiles/rpc_client.dir/rpc_method.c.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/register_json_test.dir/build.make CMakeFiles/register_json_test.dir/rpc_method.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_benchmark.dir/build.make CMakeFiles/rpc_benchmark.dir/rpc_method.c.o
 .PHONY : rpc_method.c.o
 
 rpc_method.i: rpc_method.c.i
@@ -338,6 +385,7 @@ rpc_method.c.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_server.dir/build.make CMakeFiles/rpc_server.dir/rpc_method.c.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_client.dir/build.make CMakeFiles/rpc_client.dir/rpc_method.c.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/register_json_test.dir/build.make CMakeFiles/register_json_test.dir/rpc_method.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_benchmark.dir/build.make CMakeFiles/rpc_benchmark.dir/rpc_method.c.i
 .PHONY : rpc_method.c.i
 
 rpc_method.s: rpc_method.c.s
@@ -349,6 +397,7 @@ rpc_method.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_server.dir/build.make CMakeFiles/rpc_server.dir/rpc_method.c.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_client.dir/build.make CMakeFiles/rpc_client.dir/rpc_method.c.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/register_json_test.dir/build.make CMakeFiles/register_json_test.dir/rpc_method.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rpc_benchmark.dir/build.make CMakeFiles/rpc_benchmark.dir/rpc_method.c.s
 .PHONY : rpc_method.c.s
 
 rpc_server.o: rpc_server.c.o
@@ -384,6 +433,7 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... register_json_test"
+	@echo "... rpc_benchmark"
 	@echo "... rpc_client"
 	@echo "... rpc_method"
 	@echo "... rpc_server"
@@ -399,6 +449,9 @@ help:
 	@echo "... rpc.o"
 	@echo "... rpc.i"
 	@echo "... rpc.s"
+	@echo "... rpc_benchmark.o"
+	@echo "... rpc_benchmark.i"
+	@echo "... rpc_benchmark.s"
 	@echo "... rpc_client.o"
 	@echo "... rpc_client.i"
 	@echo "... rpc_client.s"
