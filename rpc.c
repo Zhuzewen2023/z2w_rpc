@@ -18,31 +18,6 @@
 #include <stdarg.h>
 #include <arpa/inet.h>
 
-
-char *sayhello_response = "{ \n \
-	\"method\" : \"sayhello\",\n \
-	\"result\" : \"bn cprz\",\n \
-	\"callerid\" : 12345\n\
-}";
-
-char *add_response = "{ \n \
-    \"method\" : \"add\",\n \
-    \"result\" : 17,\n \
-    \"callerid\" : 12346\n \
-}";
-
-char *sub_response = "{ \n \
-    \"method\" : \"sub\",\n \
-    \"result\" : 3.3,\n \
-    \"callerid\" : 12347\n \
-}";
-
-char *mul_response = "{ \n \
-    \"method\" : \"mul\",\n \
-    \"result\" : 8.64,\n \
-    \"callerid\" : 12348\n \
-}";
-
 char *no_response = "{ \n \
     \"method\" : \"no\",\n \
     \"result\" : \"no found\",\n \
@@ -380,10 +355,10 @@ int rpc_load_register(char *filename)
 
 char* rpc_client_session(char *request_json)
 {
-    const char *ip = "192.168.245.129";
-    unsigned short port = 9096;
+    //const char *ip = "192.168.245.129";
+    //unsigned short port = 9096;
 
-    int connfd = connect_tcp_server(ip, port);
+    int connfd = connect_tcp_server(rpc_server_ip, rpc_server_port);
     
     char *request = request_json;
 

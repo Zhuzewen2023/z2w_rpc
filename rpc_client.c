@@ -31,9 +31,10 @@ int main(int argc, char **argv)
 
     rpc_load_register(argv[1]);
     printf("%s\n", sayhello("z2w rpc nb", 10));
-    printf("%d\n", add(10,7));
+    printf("%d\n", add(100,99));
     printf("%f\n", sub(20,3));
-    printf("%f\n", mul(2,3));
+    printf("%f\n", mul(245,377));
+    printf("%d\n", sum(111,222,333));
 
     return 0;
 }
