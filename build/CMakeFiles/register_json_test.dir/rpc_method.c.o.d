@@ -1,10 +1,8 @@
 CMakeFiles/register_json_test.dir/rpc_method.c.o: \
- /home/z2w/shared_work/z2w_rpc/rpc_method.c /usr/include/stdc-predef.h \
- /home/z2w/shared_work/z2w_rpc/rpc_method.h \
- /home/z2w/shared_work/z2w_rpc/cJSON.h \
- /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
- /home/z2w/shared_work/z2w_rpc/rpc.h \
- /home/z2w/shared_work/z2w_rpc/rpc_client.h /usr/include/stdio.h \
+ /root/z2w_rpc/rpc_method.c /usr/include/stdc-predef.h \
+ /root/z2w_rpc/rpc_method.h /root/z2w_rpc/cJSON.h \
+ /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h /root/z2w_rpc/rpc.h \
+ /root/z2w_rpc/rpc_client.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
@@ -13,7 +11,7 @@ CMakeFiles/register_json_test.dir/rpc_method.c.o: \
  /usr/include/x86_64-linux-gnu/bits/long-double.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
- /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h \
+ /usr/lib/gcc/x86_64-linux-gnu/11/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/types.h \
  /usr/include/x86_64-linux-gnu/bits/typesizes.h \
  /usr/include/x86_64-linux-gnu/bits/time64.h \
@@ -23,7 +21,6 @@ CMakeFiles/register_json_test.dir/rpc_method.c.o: \
  /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
  /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
- /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /usr/include/x86_64-linux-gnu/bits/floatn.h \
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h /usr/include/stdlib.h \

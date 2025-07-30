@@ -1,11 +1,8 @@
-CMakeFiles/register_json_test.dir/rpc.c.o: \
- /home/z2w/shared_work/z2w_rpc/rpc.c /usr/include/stdc-predef.h \
- /home/z2w/shared_work/z2w_rpc/rpc.h \
- /home/z2w/shared_work/z2w_rpc/cJSON.h \
- /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
- /home/z2w/shared_work/z2w_rpc/crc32.h \
- /home/z2w/shared_work/z2w_rpc/rpc_method.h \
- /home/z2w/shared_work/z2w_rpc/rpc_client.h /usr/include/string.h \
+CMakeFiles/register_json_test.dir/rpc.c.o: /root/z2w_rpc/rpc.c \
+ /usr/include/stdc-predef.h /root/z2w_rpc/rpc.h /root/z2w_rpc/cJSON.h \
+ /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h /root/z2w_rpc/crc32.h \
+ /root/z2w_rpc/rpc_method.h /root/z2w_rpc/rpc_client.h \
+ /usr/include/string.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
@@ -47,7 +44,7 @@ CMakeFiles/register_json_test.dir/rpc.c.o: \
  /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
  /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h /usr/include/alloca.h \
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h /usr/include/stdio.h \
- /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h \
+ /usr/lib/gcc/x86_64-linux-gnu/11/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
@@ -68,10 +65,9 @@ CMakeFiles/register_json_test.dir/rpc.c.o: \
  /usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h \
  /usr/include/linux/falloc.h /usr/include/x86_64-linux-gnu/bits/stat.h \
  /usr/include/x86_64-linux-gnu/bits/struct_stat.h /usr/include/link.h \
- /usr/include/elf.h /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h \
+ /usr/include/elf.h /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h \
  /usr/include/stdint.h /usr/include/x86_64-linux-gnu/bits/wchar.h \
- /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
- /usr/include/x86_64-linux-gnu/bits/stdint-least.h /usr/include/dlfcn.h \
+ /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h /usr/include/dlfcn.h \
  /usr/include/x86_64-linux-gnu/bits/dlfcn.h \
  /usr/include/x86_64-linux-gnu/bits/dl_find_object.h \
  /usr/include/x86_64-linux-gnu/bits/elfclass.h \

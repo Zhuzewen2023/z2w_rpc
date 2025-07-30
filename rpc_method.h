@@ -18,10 +18,12 @@ char* rpc_response_json_encode_sayhello(cJSON *params, rpc_task_t *task);
 char* rpc_response_json_encode_add(cJSON *params, rpc_task_t *task);
 char* rpc_response_json_encode_sub(cJSON *params, rpc_task_t *task);
 char* rpc_response_json_encode_mul(cJSON *params, rpc_task_t *task);
+char* rpc_response_json_encode_sum(cJSON *params, rpc_task_t *task);
 char* rpc_sayhello(char *msg, int length);
 int rpc_add(int a, int b);
 double rpc_sub(double a, double b);
 double rpc_mul(double a, double b);
+int rpc_sum(int a, int b, int c);
 
 #ifdef __cplusplus
 }

@@ -98,6 +98,22 @@ char* rpc_response_json_encode_mul(cJSON *params, rpc_task_t *task)
     return response;
 }
 
+char* rpc_response_json_encode_sum(cJSON *params, rpc_task_t *task)
+{
+    cJSON *cjson_a = cJSON_GetObjectItem(params, "a");
+    cJSON *cjson_b = cJSON_GetObjectItem(params, "b");
+    cJSON *cjson_c = cJSON_GetObjectItem(params, "c");
+    int ret = rpc_sum(cjson_a->valueint, cjson_b->valueint, cjson_c->valueint);
+
+    cJSON *root = cJSON_CreateObject();
+    cJSON_AddStringToObject(root, "method", task->method);
+    cJSON_AddNumberToObject(root, "result", ret);
+    cJSON_AddNumberToObject(root, "callerid", task->callerid);
+    char *response = cJSON_Print(root);
+    cJSON_Delete(root);
+    return response;
+}
+
 char* sayhello(char *msg, int length)
 {
     char *request = rpc_request_json_encode(2, msg, length);    /*generate json*/

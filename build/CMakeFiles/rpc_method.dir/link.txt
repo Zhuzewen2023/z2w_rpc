@@ -1,1 +1,1 @@
-/usr/bin/cc -fPIC -shared -Wl,-soname,librpc_method.so -o librpc_method.so CMakeFiles/rpc_method.dir/rpc_client.c.o 
+/usr/bin/cc -fPIC -shared -Wl,-soname,librpc_method.so -o librpc_method.so CMakeFiles/rpc_method.dir/rpc_client.c.o CMakeFiles/rpc_method.dir/cJSON.c.o CMakeFiles/rpc_method.dir/crc32.c.o CMakeFiles/rpc_method.dir/rpc.c.o CMakeFiles/rpc_method.dir/rpc_method.c.o 

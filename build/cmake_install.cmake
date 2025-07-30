@@ -1,4 +1,4 @@
-# Install script for directory: /home/z2w/shared_work/z2w_rpc
+# Install script for directory: /root/z2w_rpc
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/z2w/shared_work/z2w_rpc/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/root/z2w_rpc/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
