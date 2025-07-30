@@ -106,7 +106,7 @@ int main(int argc, char *argv[])
     }
 
     rpc_load_register(argv[1]);
-	rpc_generate_method_code(argv[1]);
+	
 
 	nty_coroutine *co = NULL;
 

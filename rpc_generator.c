@@ -26,7 +26,7 @@ rpc_generate_h_method(FILE* method_h_fp, char *method_str, char *type_str,
     }
     fprintf(method_h_fp, ");\n");
 
-    fprintf(method_h_fp, "%s rpc_response_json_encode_%s(cJSON *params, rpc_task_t *task);\n",type_str, method_str);
+    fprintf(method_h_fp, "char* rpc_response_json_encode_%s(cJSON *params, rpc_task_t *task);\n", method_str);
 
     fprintf(method_h_fp, "%s rpc_%s(", type_str, method_str);
     for (int i = 0; i < param_num; i++) {
@@ -36,6 +36,7 @@ rpc_generate_h_method(FILE* method_h_fp, char *method_str, char *type_str,
         }
     }
     fprintf(method_h_fp, ");\n");
+    
 }
 
 static void
@@ -55,36 +56,45 @@ rpc_generate_c_method(FILE* method_c_fp, char *method_str, char *type_str,
         }
     }
     fprintf(method_c_fp, ")\n{\n");
+    if (0 == strcmp(type_str, "char*") || 0 == strcmp(type_str, "char *")) {
+        fprintf(method_c_fp, "\tchar *ret = NULL;\n");
+    } else {
+        fprintf(method_c_fp, "\t%s ret = -1;\n", type_str);
+    }
     fprintf(method_c_fp, "\t/*to do..*/\n");
     fprintf(method_c_fp, "\treturn ret;\n");
     fprintf(method_c_fp, "}\n\n");
 
-    fprintf(method_c_fp, "%s rpc_response_json_encode_%s(", type_str, method_str);
+    fprintf(method_c_fp, "char* rpc_response_json_encode_%s(", method_str);
     fprintf(method_c_fp, "cJSON *params, rpc_task_t *task)\n{\n");
     for (int i = 0; i < param_num; i++) {
         fprintf(method_c_fp, "\tcJSON *cjson_%s = cJSON_GetObjectItem(params, \"%s\");\n", 
             param_str_arr[i], param_str_arr[i]);
     }
-    fprintf(method_c_fp, "char *ret = rpc_sayhello(");
+    fprintf(method_c_fp, "\t%s ret = rpc_%s(", type_str, method_str);
     for (int i = 0; i < param_num; i++) {
-        fprintf(method_c_fp, "cjson_%s->valuestring", param_str_arr[i]);
+        if (0 == strcmp(type_str_arr[i], "char*") || 0 == strcmp(type_str_arr[i], "char *")) {
+            fprintf(method_c_fp, "cjson_%s->valuestring", param_str_arr[i]);
+        } else {
+            fprintf(method_c_fp, "cjson_%s->valueint", param_str_arr[i]);
+        }
         if (i != param_num - 1) {
             fprintf(method_c_fp, ", ");
         }
     }
     fprintf(method_c_fp, ");\n");
 
-    fprintf(method_c_fp, "cJSON *root = cJSON_CreateObject();\n");
-    fprintf(method_c_fp, "cJSON_AddStringToObject(root, \"method\", task->method);\n");
+    fprintf(method_c_fp, "\tcJSON *root = cJSON_CreateObject();\n");
+    fprintf(method_c_fp, "\tcJSON_AddStringToObject(root, \"method\", task->method);\n");
     if (0 == strcmp(type_str, "char*") || 0 == strcmp(type_str, "char *")) {
-        fprintf(method_c_fp, "cJSON_AddStringToObject(root, \"result\", ret);\n");
+        fprintf(method_c_fp, "\tcJSON_AddStringToObject(root, \"result\", ret);\n");
     } else {
-        fprintf(method_c_fp, "cJSON_AddNumberToObject(root, \"result\", ret);\n");
+        fprintf(method_c_fp, "\tcJSON_AddNumberToObject(root, \"result\", ret);\n");
     }
-    fprintf(method_c_fp, "cJSON_AddNumberToObject(root, \"callerid\", task->callerid);\n");
-    fprintf(method_c_fp, "char *response = cJSON_Print(root);\n");
-    fprintf(method_c_fp, "cJSON_Delete(root);\n");
-    fprintf(method_c_fp, "return response;\n");
+    fprintf(method_c_fp, "\tcJSON_AddNumberToObject(root, \"callerid\", task->callerid);\n");
+    fprintf(method_c_fp, "\tchar *response = cJSON_Print(root);\n");
+    fprintf(method_c_fp, "\tcJSON_Delete(root);\n");
+    fprintf(method_c_fp, "\treturn response;\n");
     fprintf(method_c_fp, "}\n\n");
 
     fprintf(method_c_fp, "%s %s(", type_str, method_str);
@@ -105,12 +115,28 @@ rpc_generate_c_method(FILE* method_c_fp, char *method_str, char *type_str,
     fprintf(method_c_fp, ");\n");
     fprintf(method_c_fp, "\tchar *response = rpc_client_session(request);\n");
     fprintf(method_c_fp, "\tchar *result = rpc_response_json_decode(response);\n");
-    fprintf(method_c_fp, "\tchar *ret = strdup(result);\n");
+    if (0 == strcmp(type_str, "char*") || 0 == strcmp(type_str, "char *")) {
+        fprintf(method_c_fp, "\tchar *ret = strdup(result);\n");
+    } else if (0 == strcmp(type_str, "int") || 0 == strcmp(type_str, "int ")) {
+        fprintf(method_c_fp, "\tint ret = atoi(result);\n");
+    } else if (0 == strcmp(type_str, "long") || 0 == strcmp(type_str, "long ")) {
+        fprintf(method_c_fp, "\tlong ret = atol(result);\n");
+    } else if (0 == strcmp(type_str, "long long") || 0 == strcmp(type_str, "long long ")) {
+        fprintf(method_c_fp, "\tlong long ret = atoll(result);\n");
+    } else if (0 == strcmp(type_str, "float") || 0 == strcmp(type_str, "float ")) {
+        fprintf(method_c_fp, "\tfloat ret = atof(result);\n");
+    } else if (0 == strcmp(type_str, "double") || 0 == strcmp(type_str, "double ")) {
+        fprintf(method_c_fp, "\tdouble ret = strtod(result, NULL);\n");
+    } else {
+        fprintf(method_c_fp, "\t%s ret = -1;\n", type_str);
+    }
+    // fprintf(method_c_fp, "\tchar *ret = strdup(result);\n");
     fprintf(method_c_fp, "\trpc_free(result);\n");
     fprintf(method_c_fp, "\trpc_free(response);\n");
     fprintf(method_c_fp, "\trpc_free(request);\n");
     fprintf(method_c_fp, "\treturn ret;\n");
     fprintf(method_c_fp, "}\n\n");
+   
 }
 
 
@@ -206,13 +232,13 @@ rpc_generate_method_code(const char *register_json_path)
             goto out;
         }
 
-        char **param_str_arr = rpc_malloc(param_arr_size);
-        char **type_str_arr = rpc_malloc(types_arr_size);
+        char **param_str_arr = malloc(param_arr_size);
+        char **type_str_arr = malloc(types_arr_size);
 
         if (param_str_arr == NULL || type_str_arr == NULL) {
             printf("malloc param_str_arr or type_str_arr failed\n");
-            rpc_free(param_str_arr);
-            rpc_free(type_str_arr);
+            free(param_str_arr);
+            free(type_str_arr);
             goto out;
         }
 
@@ -221,8 +247,8 @@ rpc_generate_method_code(const char *register_json_path)
             cJSON *type = cJSON_GetArrayItem(types_arr, j);
             if (param == NULL || type == NULL) {
                 printf("get param or type failed\n");
-                rpc_free(param_str_arr);
-                rpc_free(type_str_arr);
+                free(param_str_arr);
+                free(type_str_arr);
                 goto out;
             }
             param_str_arr[j] = cJSON_GetStringValue(param);
@@ -236,8 +262,8 @@ rpc_generate_method_code(const char *register_json_path)
         rpc_generate_c_method(method_c_fp, method_str, type_str, param_str_arr, type_str_arr, param_arr_size);
         
         
-        rpc_free(param_str_arr);
-        rpc_free(type_str_arr);
+        free(param_str_arr);
+        free(type_str_arr);
 
     }
 
@@ -247,6 +273,9 @@ rpc_generate_method_code(const char *register_json_path)
     fprintf(method_h_fp, "#endif\n\n");
     
     fprintf(method_h_fp, "#endif\n");
+
+    printf("Generate rpc_method.h success\n");
+    printf("Generate rpc_method.c success\n");
 
 
 out:
@@ -266,4 +295,14 @@ out:
         cJSON_Delete(root);
     }
     return ret;
+}
+
+int main(int argc, char**argv)
+{
+    if (argc != 2) {
+		printf("Usage: ./%s <filename>\n", argv[0]);
+		return -1;
+    }
+
+    rpc_generate_method_code(argv[1]);
 }

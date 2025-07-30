@@ -1,0 +1,1 @@
+/usr/bin/cc CMakeFiles/rpc_generator.dir/rpc_generator.c.o CMakeFiles/rpc_generator.dir/cJSON.c.o -o bin/rpc_generator 

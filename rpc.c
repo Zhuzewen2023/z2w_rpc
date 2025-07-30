@@ -83,24 +83,6 @@ char *rpc_process(char *request_json)
 
     char *response = func->handler(params, task);
     return response;
-    // if (strcmp(method->valuestring, "sayhello") == 0) {
-    //     // printf("get method sayhello\n");
-    //     // return sayhello_response;
-    //     return rpc_response_json_encode_sayhello(params, task);
-    // } else if (strcmp(method->valuestring, "add") == 0) {
-    //     // printf("get method add\n");
-    //     // return add_response;
-    //     return rpc_response_json_encode_add(params, task);
-    // } else if (strcmp(method->valuestring, "sub") == 0) {
-    //     // printf("get method sub\n");
-    //     // return sub_response;
-    //     return rpc_response_json_encode_sub(params, task);
-    // } else if (strcmp(method->valuestring, "mul") == 0) {
-    //     // return mul_response;
-    //     return rpc_response_json_encode_mul(params, task);
-    // }
-    // printf("cannot get method\n");
-    // return no_response;
 }
 
 const char* rpc_caller_name()

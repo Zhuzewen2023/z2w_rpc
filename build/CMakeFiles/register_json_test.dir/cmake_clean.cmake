@@ -7,8 +7,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/register_json_test.dir/register_json_test.c.o.d"
   "CMakeFiles/register_json_test.dir/rpc.c.o"
   "CMakeFiles/register_json_test.dir/rpc.c.o.d"
-  "CMakeFiles/register_json_test.dir/rpc_generator.c.o"
-  "CMakeFiles/register_json_test.dir/rpc_generator.c.o.d"
   "CMakeFiles/register_json_test.dir/rpc_method.c.o"
   "CMakeFiles/register_json_test.dir/rpc_method.c.o.d"
   "bin/register_json_test"

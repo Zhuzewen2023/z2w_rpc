@@ -9,6 +9,17 @@ include_directories(
     ${CMAKE_SOURCE_DIR}
 )
 
+#add_executable(rpc_generator rpc_generator.c cJSON.c)
+#add_custom_command(
+#    OUTPUT ${CMAKE_SOURCE_DIR}/rpc_method.c ${CMAKE_SOURCE_DIR}/rpc_method.h
+#    COMMAND $<TARGET_FILE:rpc_generator> ${CMAKE_SOURCE_DIR}/register.json
+#    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+#    DEPENDS rpc_generator
+#    COMMENT "Generate rpc_method.c and rpc_method.h"
+#)
+#add_custom_target(generate_rpc_files DEPENDS ${CMAKE_SOURCE_DIR}/rpc_method.c ${CMAKE_SOURCE_DIR}/rpc_method.h)
+
+
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 set(SERVER_SOURCES
@@ -17,7 +28,6 @@ set(SERVER_SOURCES
     rpc.c
     cJSON.c
     rpc_method.c
-    rpc_generator.c
 )
 
 set(CLIENT_SOURCES
@@ -26,7 +36,6 @@ set(CLIENT_SOURCES
     rpc.c
     cJSON.c
     rpc_method.c
-    rpc_generator.c
 )
 
 set(REGISTER_JSON_TEST_SOURCES
@@ -35,7 +44,6 @@ set(REGISTER_JSON_TEST_SOURCES
     cJSON.c
     crc32.c
     rpc_method.c
-    rpc_generator.c
 )
 
 set(LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR})
@@ -53,6 +61,10 @@ set_target_properties(ntyco PROPERTIES
 add_executable(rpc_server ${SERVER_SOURCES})
 add_executable(rpc_client ${CLIENT_SOURCES})
 add_executable(register_json_test ${REGISTER_JSON_TEST_SOURCES})
+
+#add_dependencies(rpc_server generate_rpc_files)
+#add_dependencies(rpc_client generate_rpc_files)
+#add_dependencies(register_json_test generate_rpc_files)
 
 target_link_libraries(rpc_server ntyco pthread dl rpc_method "-rdynamic")
 # target_link_options(rpc_server PRIVATE "-rdynamic")
